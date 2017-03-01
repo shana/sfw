@@ -145,17 +145,34 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="includes\Lock.h" />
+    <ClInclude Include="includes\NativeInterface.h" />
+    <ClInclude Include="includes\NSFW.h" />
+    <ClInclude Include="includes\Queue.h" />
+    <ClInclude Include="includes\win32\ReadLoop.h" />
+    <ClInclude Include="includes\win32\ReadLoopRunner.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sfw.cpp" />
+    <ClCompile Include="src\Lock.cpp" />
+    <ClCompile Include="src\NativeInterface.cpp" />
+    <ClCompile Include="src\NSFW.cpp" />
+    <ClCompile Include="src\Queue.cpp" />
+    <ClCompile Include="src\win32\ReadLoop.cpp" />
+    <ClCompile Include="src\win32\ReadLoopRunner.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\openpa\openpa.vcxproj">
+      <Project>{59bcd980-2fba-0987-d4c5-76707c3607bc}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
