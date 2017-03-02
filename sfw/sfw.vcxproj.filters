@@ -69,6 +69,9 @@
     <ClInclude Include="includes\win32\pthreads-win32\semaphore.h">
       <Filter>Header Files\pthreads-win32</Filter>
     </ClInclude>
+    <ClInclude Include="includes\sfw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
