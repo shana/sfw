@@ -1,0 +1,9 @@
+/.vs
+/ipch
+
+Default
+Debug
+
+*.user
+/*.opendb
+/*.db
