@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "../includes/Lock.h"
 
 Lock::Lock(pthread_mutex_t &mutex)

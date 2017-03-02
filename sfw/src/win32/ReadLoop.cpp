@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "../../includes/win32/ReadLoop.h"
 
 ReadLoop::ReadLoop(EventQueue &queue, std::string path):

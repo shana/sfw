@@ -1,7 +1,7 @@
 #ifndef LOCK_H
 #define LOCK_H
 
-#include <pthread.h>
+#include "win32/pthread.h"
 
 class Lock {
 public:

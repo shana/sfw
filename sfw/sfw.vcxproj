@@ -26,13 +26,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -86,12 +86,14 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\StanleyGoldman\Documents\Projects\sfw\lib\pthreads-win32-2.9.1\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -99,12 +101,13 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\StanleyGoldman\Documents\Projects\sfw\lib\pthreads-win32-2.9.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -114,7 +117,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -122,6 +125,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\StanleyGoldman\Documents\Projects\sfw\lib\pthreads-win32-2.9.1\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,7 +136,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -139,16 +144,21 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\StanleyGoldman\Documents\Projects\sfw\lib\pthreads-win32-2.9.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="includes\Lock.h" />
     <ClInclude Include="includes\NativeInterface.h" />
-    <ClInclude Include="includes\NSFW.h" />
     <ClInclude Include="includes\Queue.h" />
+    <ClInclude Include="includes\win32\pthread.h" />
+    <ClInclude Include="includes\win32\pthreads-win32\config.h" />
+    <ClInclude Include="includes\win32\pthreads-win32\context.h" />
+    <ClInclude Include="includes\win32\pthreads-win32\implement.h" />
+    <ClInclude Include="includes\win32\pthreads-win32\need_errno.h" />
+    <ClInclude Include="includes\win32\pthreads-win32\pthread.h" />
+    <ClInclude Include="includes\win32\pthreads-win32\sched.h" />
+    <ClInclude Include="includes\win32\pthreads-win32\semaphore.h" />
     <ClInclude Include="includes\win32\ReadLoop.h" />
     <ClInclude Include="includes\win32\ReadLoopRunner.h" />
     <ClInclude Include="stdafx.h" />
@@ -158,7 +168,6 @@
     <ClCompile Include="sfw.cpp" />
     <ClCompile Include="src\Lock.cpp" />
     <ClCompile Include="src\NativeInterface.cpp" />
-    <ClCompile Include="src\NSFW.cpp" />
     <ClCompile Include="src\Queue.cpp" />
     <ClCompile Include="src\win32\ReadLoop.cpp" />
     <ClCompile Include="src\win32\ReadLoopRunner.cpp" />

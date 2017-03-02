@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="src">
@@ -48,9 +48,6 @@
     <ClInclude Include="src\primitives\opa_emulated.h">
       <Filter>src\primitives</Filter>
     </ClInclude>
-    <ClInclude Include="src\primitives\opa_nt_intrinics.h">
-      <Filter>src\primitives</Filter>
-    </ClInclude>
     <ClInclude Include="src\primitives\opa_gcc_intrinsics.h">
       <Filter>src\primitives</Filter>
     </ClInclude>
@@ -75,6 +72,6 @@
     <ClInclude Include="src\primitives\opa_nt_intrinsics.h">
       <Filter>src\primitives</Filter>
     </ClInclude>
-    <None Include="openpa.gyp"/>
+    <None Include="openpa.gyp" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "../includes/NativeInterface.h"
 
 #if defined(_WIN32)

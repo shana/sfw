@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "../../includes/win32/ReadLoopRunner.h"
 
 ReadLoopRunner::ReadLoopRunner(std::wstring directory, EventQueue &queue, HANDLE directoryHandle):

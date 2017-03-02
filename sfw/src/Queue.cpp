@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "../includes/Queue.h"
 
 #pragma unmanaged

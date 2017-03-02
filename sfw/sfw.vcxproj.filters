@@ -1,14 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="sfw.cpp" />
-    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="src\Lock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\NativeInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Queue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\ReadLoop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win32\ReadLoopRunner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sfw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="includes\Lock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\NativeInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\Queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\ReadLoop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\ReadLoopRunner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthreads-win32\config.h">
+      <Filter>Header Files\pthreads-win32</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthreads-win32\context.h">
+      <Filter>Header Files\pthreads-win32</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthreads-win32\implement.h">
+      <Filter>Header Files\pthreads-win32</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthreads-win32\need_errno.h">
+      <Filter>Header Files\pthreads-win32</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthreads-win32\pthread.h">
+      <Filter>Header Files\pthreads-win32</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthreads-win32\sched.h">
+      <Filter>Header Files\pthreads-win32</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\win32\pthreads-win32\semaphore.h">
+      <Filter>Header Files\pthreads-win32</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5100f203-969c-4e24-a5aa-ff46e24b88ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{475e9c02-bc87-4eff-ab83-5133465b31f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\pthreads-win32">
+      <UniqueIdentifier>{74912962-3bde-400b-a67b-ec92af299324}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

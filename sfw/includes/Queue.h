@@ -2,9 +2,10 @@
 #define NSFW_QUEUE_H
 
 #include <string>
+
 extern "C" {
-#  include <opa_queue.h>
-#  include <opa_primitives.h>
+#include "../../openpa/src/opa_queue.h"
+#include "../../openpa/src/primitives/opa_nt_intrinsics.h"
 }
 
 enum EventType {
