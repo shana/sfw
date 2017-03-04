@@ -2,23 +2,12 @@
 #define NSFW_QUEUE_H
 
 #include <string>
+#include "sfw_export_types.h"
 
 extern "C" {
 #include "../../openpa/src/opa_queue.h"
 #include "../../openpa/src/primitives/opa_nt_intrinsics.h"
 }
-
-enum EventType {
-  CREATED = 0,
-  DELETED = 1,
-  MODIFIED = 2,
-  RENAMED = 3
-};
-
-struct Event {
-  EventType type;
-  std::string directory, fileA, fileB;
-};
 
 class EventQueue {
 public:

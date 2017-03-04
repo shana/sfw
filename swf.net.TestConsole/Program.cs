@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
 using System.Threading;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
+using sfw.net;
 
-namespace sfw.net.UnitTests
+namespace swf.net.TestConsole
 {
-    [TestClass]
-    public class UnitTest1
+    class Program
     {
-        [TestMethod]
-        public void TestMethod1()
+        static void Main(string[] args)
         {
             Debug.WriteLine($@"Output Directory: ""{Environment.CurrentDirectory}""");
             var path = "C:\\Users\\StanleyGoldman\\Desktop\\ncrunch_report";
@@ -20,10 +22,6 @@ namespace sfw.net.UnitTests
                 Thread.Sleep(5000);
                 var nativeInterfaceGetEvents = NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface);
             }
-
-
-
-//            NativeInterfaceStatic.NativeInterface_Delete(nativeInterface);
         }
     }
 }

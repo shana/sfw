@@ -47,24 +47,39 @@ bool NativeInterface::isWatching() {
   return ((SERVICE *)mNativeInterface)->isWatching();
 }
 
-void NativeInterfaceCreateTest()
-{
-	auto pathString = "C:\\Users\\StanleyGoldman\\Desktop\\ncrunch_report";
-	NativeInterface f(pathString);
-}
-
-NativeInterface* NativeInterface_Create(const char* path)
+void* NativeInterface_Create(const char* path)
 {
 	std::string pathString = path;
 	return new NativeInterface(pathString);
 }
 
-std::string NativeInterface_getError(NativeInterface* pNativeInterface) { return pNativeInterface->getError(); }
+std::string NativeInterface_getError(void* ptr)
+{
+	auto native_interface = static_cast<NativeInterface*>(ptr);
+	return native_interface->getError();
+}
 
-std::vector<Event*>* NativeInterface_getEvents(NativeInterface* pNativeInterface) { return pNativeInterface->getEvents(); }
+std::vector<Event*>* NativeInterface_getEvents(void* ptr)
+{
+	auto native_interface = static_cast<NativeInterface*>(ptr);
+	auto events = native_interface->getEvents();
+	return events;
+}
 
-bool NativeInterface_hasErrored(NativeInterface* pNativeInterface) { return pNativeInterface->hasErrored(); }
+bool NativeInterface_hasErrored(void* ptr)
+{
+	auto native_interface = static_cast<NativeInterface*>(ptr);
+	return native_interface->hasErrored();
+}
 
-bool NativeInterface_isWatching(NativeInterface* pNativeInterface) { return pNativeInterface->isWatching(); }
+bool NativeInterface_isWatching(void* ptr)
+{
+	auto native_interface = static_cast<NativeInterface*>(ptr);
+	return native_interface->isWatching();
+}
 
-void NativeInterface_Delete(NativeInterface* pNativeInterface) { delete pNativeInterface; }
+void NativeInterface_Delete(void* ptr)
+{
+	auto native_interface = static_cast<NativeInterface*>(ptr);
+	delete native_interface;
+}

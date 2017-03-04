@@ -69,6 +69,8 @@
     <ClInclude Include="includes\sfw_exports.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="includes\export_header.h" />
+    <ClInclude Include="includes\sfw_export_types.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
