@@ -20,4 +20,18 @@ private:
   void *mNativeInterface;
 };
 
+SFW_EXPORT_API void NativeInterfaceCreateTest();
+
+SFW_EXPORT_API NativeInterface* NativeInterface_Create(const char* path);
+
+SFW_EXPORT_API std::string NativeInterface_getError(NativeInterface* pNativeInterface);
+
+SFW_EXPORT_API std::vector<Event*>* NativeInterface_getEvents(NativeInterface* pNativeInterface);
+
+SFW_EXPORT_API bool NativeInterface_hasErrored(NativeInterface* pNativeInterface);
+
+SFW_EXPORT_API bool NativeInterface_isWatching(NativeInterface* pNativeInterface);
+
+SFW_EXPORT_API void NativeInterface_Delete(NativeInterface* pNativeInterface);
+
 #endif

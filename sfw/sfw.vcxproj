@@ -96,7 +96,7 @@
       <AdditionalDependencies>pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"</Command>
+      <Command>xcopy /Y "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -132,7 +132,7 @@
       <AdditionalDependencies>pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"</Command>
+      <Command>xcopy /Y "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

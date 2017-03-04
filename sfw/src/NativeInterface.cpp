@@ -46,3 +46,25 @@ bool NativeInterface::hasErrored() {
 bool NativeInterface::isWatching() {
   return ((SERVICE *)mNativeInterface)->isWatching();
 }
+
+void NativeInterfaceCreateTest()
+{
+	auto pathString = "C:\\Users\\StanleyGoldman\\Desktop\\ncrunch_report";
+	NativeInterface f(pathString);
+}
+
+NativeInterface* NativeInterface_Create(const char* path)
+{
+	std::string pathString = path;
+	return new NativeInterface(pathString);
+}
+
+std::string NativeInterface_getError(NativeInterface* pNativeInterface) { return pNativeInterface->getError(); }
+
+std::vector<Event*>* NativeInterface_getEvents(NativeInterface* pNativeInterface) { return pNativeInterface->getEvents(); }
+
+bool NativeInterface_hasErrored(NativeInterface* pNativeInterface) { return pNativeInterface->hasErrored(); }
+
+bool NativeInterface_isWatching(NativeInterface* pNativeInterface) { return pNativeInterface->isWatching(); }
+
+void NativeInterface_Delete(NativeInterface* pNativeInterface) { delete pNativeInterface; }
