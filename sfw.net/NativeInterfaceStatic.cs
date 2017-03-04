@@ -26,16 +26,16 @@ namespace sfw.net
 
     internal static class NativeInterfaceStatic
     {
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "NativeInterface_Create")]
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_Create@@YAPAXPBD@Z")]
         public static extern IntPtr NativeInterface_Create(string path);
 
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "NativeInterface_Delete")]
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_Delete@@YAPAXPBD@Z")]
         public static extern void NativeInterface_Delete(IntPtr nativeInterface);
 
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "NativeInterface_getError")]
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_getError@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAX@Z")]
         public static extern string NativeInterface_getError(IntPtr nativeInterface);
    
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "NativeInterface_getError")]
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_getEvents@@YAPAV?$vector@PAUEvent@@V?$allocator@PAUEvent@@@std@@@std@@PAX@Z")]
         public static extern IList NativeInterface_getEvents(IntPtr nativeInterface);
     }
 }

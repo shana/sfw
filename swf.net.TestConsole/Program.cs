@@ -21,6 +21,10 @@ namespace swf.net.TestConsole
             {
                 Thread.Sleep(5000);
                 var nativeInterfaceGetEvents = NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface);
+                if (nativeInterfaceGetEvents != null)
+                {
+                    
+                }
             }
         }
     }
