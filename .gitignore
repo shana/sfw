@@ -1,10 +1,11 @@
 /.vs
 /ipch
 
-Default
-Debug
-
 *.user
+
 /*.opendb
 /*.db
-/build
+
+build
+obj
+bin
