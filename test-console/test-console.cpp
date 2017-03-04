@@ -5,7 +5,6 @@
 #include "../sfw/includes/sfw_exports.h"
 #include <iostream>
 #include <vector>
-#include "../sfw/includes/Queue.h"
 
 int main()
 {
