@@ -1,4 +1,6 @@
 #pragma once
+#include "export_header.h"
+
 enum EventType {
 	CREATED = 0,
 	DELETED = 1,
@@ -6,7 +8,7 @@ enum EventType {
 	RENAMED = 3
 };
 
-struct Event {
+SFW_EXPORT_API struct Event {
 	EventType type;
 	std::string directory, fileA, fileB;
 };

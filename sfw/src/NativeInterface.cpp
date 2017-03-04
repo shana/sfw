@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "../includes/NativeInterface.h"
+#include "../includes/sfw_exports.h"
 
 #if defined(_WIN32)
 #define SERVICE ReadLoop
