@@ -35,7 +35,7 @@ namespace sfw.net
         [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_getError@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAX@Z")]
         public static extern string NativeInterface_getError(IntPtr nativeInterface);
    
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_getEvents@@YAPAV?$vector@PAUEvent@@V?$allocator@PAUEvent@@@std@@@std@@PAX@Z")]
-        public static extern IList NativeInterface_getEvents(IntPtr nativeInterface);
+//        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_getEvents@@YAPAV?$vector@PAUEvent@@V?$allocator@PAUEvent@@@std@@@std@@PAX@Z")]
+//        public static extern System.Collections.Generic.List NativeInterface_getEvents(IntPtr nativeInterface);
     }
 }

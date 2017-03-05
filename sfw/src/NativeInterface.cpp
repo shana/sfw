@@ -60,11 +60,12 @@ std::string NativeInterface_getError(void* ptr)
 	return native_interface->getError();
 }
 
-std::vector<Event*>* NativeInterface_getEvents(void* ptr)
+void NativeInterface_getEvents(void* ptr)
 {
 	auto native_interface = static_cast<NativeInterface*>(ptr);
 	auto events = native_interface->getEvents();
-	return events;
+	auto result = &events[0];
+	//return events;
 }
 
 bool NativeInterface_hasErrored(void* ptr)
