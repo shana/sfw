@@ -67,28 +67,6 @@ Event dereferenceEvent(Event* event)
 	return *event;
 }
 
-void NativeInterface_getEvents(void* ptr, int& count, Event*& events)
-{
-	auto native_interface = static_cast<NativeInterface*>(ptr);
-	auto result = native_interface->getEvents();
-	std::vector<Event> derefResult;
-	
-	if(result == nullptr)
-	{
-		count = 0;
-		return;
-	}
-
-	transform(result->begin(), result->end(),
-		back_inserter(derefResult),
-		&dereferenceEvent);
-
-	count = result->size();
-
-	events = new Event[derefResult.size()];
-	
-}
-
 bool NativeInterface_hasErrored(void* ptr)
 {
 	auto native_interface = static_cast<NativeInterface*>(ptr);
