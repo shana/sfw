@@ -162,12 +162,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="includes\export_header.h" />
+    <ClInclude Include="includes\ExportHeader.h" />
     <ClInclude Include="includes\Lock.h" />
     <ClInclude Include="includes\NativeInterface.h" />
     <ClInclude Include="includes\Queue.h" />
-    <ClInclude Include="includes\sfw_exports.h" />
-    <ClInclude Include="includes\sfw_export_types.h" />
     <ClInclude Include="includes\win32\pthread.h" />
     <ClInclude Include="includes\win32\pthreads-win32\config.h" />
     <ClInclude Include="includes\win32\pthreads-win32\context.h" />

@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "../includes/NativeInterface.h"
-#include "../includes/sfw_exports.h"
+#include <iterator>
+#include <vector>
+#include <algorithm>
 
 #if defined(_WIN32)
 #define SERVICE ReadLoop
@@ -14,38 +16,38 @@
 #endif
 
 NativeInterface::NativeInterface(std::string path) {
-  mNativeInterface = new SERVICE(mQueue, path);
+	mNativeInterface = new SERVICE(mQueue, path);
 }
 
 NativeInterface::~NativeInterface() {
-  delete (SERVICE *)mNativeInterface;
+	delete (SERVICE *)mNativeInterface;
 }
 
 std::string NativeInterface::getError() {
-  return ((SERVICE *)mNativeInterface)->getError();
+	return ((SERVICE *)mNativeInterface)->getError();
 }
 
 std::vector<Event *> *NativeInterface::getEvents() {
-  if (mQueue.count() == 0) {
-    return NULL;
-  }
+	if (mQueue.count() == 0) {
+		return NULL;
+	}
 
-  int count = mQueue.count();
-  std::vector<Event *> *events = new std::vector<Event *>;
-  events->reserve(count);
-  for (int i = 0; i < count; ++i) {
-    events->push_back(mQueue.dequeue());
-  }
+	int count = mQueue.count();
+	std::vector<Event *> *events = new std::vector<Event *>;
+	events->reserve(count);
+	for (int i = 0; i < count; ++i) {
+		events->push_back(mQueue.dequeue());
+	}
 
-  return events;
+	return events;
 }
 
 bool NativeInterface::hasErrored() {
-  return ((SERVICE *)mNativeInterface)->hasErrored();
+	return ((SERVICE *)mNativeInterface)->hasErrored();
 }
 
 bool NativeInterface::isWatching() {
-  return ((SERVICE *)mNativeInterface)->isWatching();
+	return ((SERVICE *)mNativeInterface)->isWatching();
 }
 
 void* NativeInterface_Create(const char* path)
@@ -60,12 +62,31 @@ std::string NativeInterface_getError(void* ptr)
 	return native_interface->getError();
 }
 
-void NativeInterface_getEvents(void* ptr)
+Event dereferenceEvent(Event* event)
+{
+	return *event;
+}
+
+void NativeInterface_getEvents(void* ptr, int& count, Event*& events)
 {
 	auto native_interface = static_cast<NativeInterface*>(ptr);
-	auto events = native_interface->getEvents();
-	auto result = &events[0];
-	//return events;
+	auto result = native_interface->getEvents();
+	std::vector<Event> derefResult;
+	
+	if(result == nullptr)
+	{
+		count = 0;
+		return;
+	}
+
+	transform(result->begin(), result->end(),
+		back_inserter(derefResult),
+		&dereferenceEvent);
+
+	count = result->size();
+
+	events = new Event[derefResult.size()];
+	
 }
 
 bool NativeInterface_hasErrored(void* ptr)

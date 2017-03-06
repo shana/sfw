@@ -3,6 +3,7 @@
 
 #include "Queue.h"
 #include <vector>
+#include "ExportHeader.h"
 
 class NativeInterface {
 public:
@@ -18,5 +19,17 @@ private:
   EventQueue mQueue;
   void *mNativeInterface;
 };
+
+SFW_EXPORT_API void* NativeInterface_Create(const char* path);
+
+SFW_EXPORT_API std::string NativeInterface_getError(void* pNativeInterface);
+
+SFW_EXPORT_API void NativeInterface_getEvents(void* ptr, int& count, Event*& events);
+
+SFW_EXPORT_API bool NativeInterface_hasErrored(void* pNativeInterface);
+
+SFW_EXPORT_API bool NativeInterface_isWatching(void* pNativeInterface);
+
+SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
 
 #endif
