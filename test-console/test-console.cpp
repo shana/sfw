@@ -14,34 +14,34 @@ int main()
 	while (continueFlag)
 	{
 		auto const bufferSize = 2;
-		auto buffer = new Event[bufferSize];
+		auto buffer = new EventSimple[bufferSize];
 
-		auto eventCount = NativeInterface_getEvents(native_interface, buffer, bufferSize);
-		for (auto i = 0; i < eventCount; i++)
-		{
-			auto evt = buffer[i];
-			std::cout << "Change: ";
-			switch (evt.type)
-			{
-			case CREATED:
-				std::cout << "Created: ";
-				break;
-
-			case DELETED:
-				std::cout << "Deleted: ";
-				break;
-
-			case MODIFIED:
-				std::cout << "Modified: ";
-				break;
-
-			case RENAMED:
-				std::cout << "Renamed: ";
-				break;
-			}
-
-			std::cout << evt.fileA << std::endl;
-		}
+//		auto eventCount = NativeInterface_getEvents(native_interface, buffer, bufferSize);
+//		for (auto i = 0; i < eventCount; i++)
+//		{
+//			auto evt = buffer[i];
+//			std::cout << "Change: ";
+//			switch (evt.type)
+//			{
+//			case CREATED:
+//				std::cout << "Created: ";
+//				break;
+//
+//			case DELETED:
+//				std::cout << "Deleted: ";
+//				break;
+//
+//			case MODIFIED:
+//				std::cout << "Modified: ";
+//				break;
+//
+//			case RENAMED:
+//				std::cout << "Renamed: ";
+//				break;
+//			}
+//
+//			std::cout << evt.fileA << std::endl;
+//		}
 
 		std::cout << "Press any key or 'q' to quit: ";
 		auto inputChar = std::cin.get();

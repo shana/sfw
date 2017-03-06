@@ -37,6 +37,7 @@ namespace sfw.net
         public static extern string NativeInterface_getError(IntPtr nativeInterface);
    
         [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int NativeInterface_getEvents(IntPtr nativeInterface, [Out] [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] Event[] events, int bufferSize);
+        public static extern void NativeInterface_getEvents(IntPtr nativeInterface, [Out] [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] out Event[] events, out int bufferSize);
+        //public static extern void NativeInterface_getEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
     }
 }

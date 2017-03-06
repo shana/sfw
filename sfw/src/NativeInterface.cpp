@@ -7,6 +7,7 @@
 #if defined(_WIN32)
 #define SERVICE ReadLoop
 #include "../includes/win32/ReadLoop.h"
+#include <windows.h>
 #elif defined(__APPLE_CC__) || defined(BSD)
 #define SERVICE FSEventsService
 #include "../includes/osx/FSEventsService.h"
@@ -76,24 +77,50 @@ std::string NativeInterface_getError(void* ptr)
 	return native_interface->getError();
 }
 
-int NativeInterface_getEvents(void* ptr, Event* buffer, int bufferSize)
+void NativeInterface_getEvents(void* instance, EventSimple** events, int* eventsCount)
 {
-	auto native_interface = static_cast<NativeInterface*>(ptr);
-	
-	auto events = native_interface->getEvents(bufferSize);
+	auto instance1 = static_cast<NativeInterface*>(instance);
+
+	auto eventVector = instance1->getEvents();
 	auto count = 0;
 
-	if(events != nullptr)
+	if (eventVector != nullptr)
 	{
-		for (auto & event : *events) {
-			 auto eventCopy = *event;
-			 buffer[count++] = eventCopy;
+		EventSimple* events2 = (EventSimple*) malloc(sizeof(EventSimple) * eventVector->size());
+		events = &events2;
+
+		for (auto & localEvent : *eventVector)
+		{
+			events2[count].type = localEvent->type;
+			{
+				size_t len = localEvent->directory.length();
+				char* tmp = (char*)malloc(len * sizeof(char));
+				localEvent->directory.copy(tmp, len, 0);
+				events2[count].directory = tmp;
+			}
+			events2[count].fileA = nullptr;
+			if (localEvent->fileA.length() > 0)
+			{
+				events2[count].fileA = (char*)malloc(localEvent->fileA.length() * sizeof(char));
+				localEvent->fileA.copy(events2[count].fileA, localEvent->fileA.length(), 0);
+			}
+
+			events2[count].fileB = nullptr;
+			
+			if (localEvent->fileB.length() > 0)
+			{
+				events2[count].fileB = (char*)malloc(localEvent->fileB.length() * sizeof(char));
+				localEvent->fileB.copy(events2[count].fileB, localEvent->fileB.length(), 0);
+			}
+
+			count++;
 		}
+
 	}
+	
+	*eventsCount = count;
 
-	delete events;
-
-	return count;
+	delete eventVector;
 }
 
 Event dereferenceEvent(Event* event)

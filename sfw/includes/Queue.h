@@ -17,7 +17,9 @@ enum EventType {
 
 struct Event {
 	EventType type;
-	std::string directory, fileA, fileB;
+	std::string directory;
+	std::string fileA;
+	std::string fileB;
 };
 
 class EventQueue {

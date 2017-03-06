@@ -22,10 +22,12 @@ namespace swf.net.TestConsole
             {
                 Thread.Sleep(5000);
 
-                IntPtr data;
+                //IntPtr events = IntPtr.Zero;
 
-                var events = new Event[50];
-                var count = NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface, events, 50);
+                int count;
+                Event[] events;
+                NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface, out events, out count);
+
                 while (count-- > 0)
                 {
                 }
