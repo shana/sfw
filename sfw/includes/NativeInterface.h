@@ -10,24 +10,27 @@ public:
   NativeInterface(std::string path);
 
   std::string getError();
-  std::vector<Event *> *getEvents();
+  std::vector<Event*>* getEvents(int bufferSize);
+  std::vector<Event*>* getEvents();
   bool hasErrored();
   bool isWatching();
 
   ~NativeInterface();
 private:
-  EventQueue mQueue;
+EventQueue mQueue;
   void *mNativeInterface;
 };
 
-SFW_EXPORT_API void* NativeInterface_Create(const char* path);
+extern "C" SFW_EXPORT_API void* NativeInterface_Create(const char* path);
 
-SFW_EXPORT_API std::string NativeInterface_getError(void* pNativeInterface);
+extern "C" SFW_EXPORT_API std::string NativeInterface_getError(void* pNativeInterface);
 
-SFW_EXPORT_API bool NativeInterface_hasErrored(void* pNativeInterface);
+extern "C" SFW_EXPORT_API int NativeInterface_getEvents(void* pNativeInterface, Event* buffer, int bufferSize);
 
-SFW_EXPORT_API bool NativeInterface_isWatching(void* pNativeInterface);
+extern "C" SFW_EXPORT_API bool NativeInterface_hasErrored(void* pNativeInterface);
 
-SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
+extern "C" SFW_EXPORT_API bool NativeInterface_isWatching(void* pNativeInterface);
+
+extern "C" SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
 
 #endif

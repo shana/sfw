@@ -24,13 +24,10 @@ namespace swf.net.TestConsole
 
                 IntPtr data;
 
-                var events = new List<Event>();
-                var count = NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface, out data);
+                var events = new Event[50];
+                var count = NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface, events, 50);
                 while (count-- > 0)
                 {
-                    events.Add((Event) Marshal.PtrToStructure(Marshal.ReadIntPtr(data), typeof(Event)));
-
-                    data += Marshal.SizeOf(typeof(IntPtr));
                 }
             }
         }

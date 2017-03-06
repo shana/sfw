@@ -13,43 +13,35 @@ int main()
 	auto continueFlag = true;
 	while (continueFlag)
 	{
-		Event* events;
-		int eventCount = 0;
+		auto const bufferSize = 2;
+		auto buffer = new Event[bufferSize];
 
-//		NativeInterface_getEvents(native_interface, eventCount, events);
-//		
-//		std::vector<Event*> fileEvents;
-//		
-//		if (eventCount > 0)
-//		{
-//			fileEvents.assign(eventCount, events);
-//		}
-//
-//		for (auto fileEvent = fileEvents.begin(); fileEvent != fileEvents.end(); ++fileEvent)
-//		{
-//			auto evt = *fileEvent;
-//			std::cout << "Change: ";
-//			switch (evt->type)
-//			{
-//			case DELETED:
-//				std::cout << "Deleted: ";
-//				break;
-//
-//			case CREATED:
-//				std::cout << "Created: ";
-//				break;
-//
-//			case MODIFIED:
-//				std::cout << "Modified: ";
-//				break;
-//
-//			case RENAMED:
-//				std::cout << "Renamed: ";
-//				break;
-//			}
-//
-//			std::cout << evt->fileA << std::endl;
-//		}
+		auto eventCount = NativeInterface_getEvents(native_interface, buffer, bufferSize);
+		for (auto i = 0; i < eventCount; i++)
+		{
+			auto evt = buffer[i];
+			std::cout << "Change: ";
+			switch (evt.type)
+			{
+			case CREATED:
+				std::cout << "Created: ";
+				break;
+
+			case DELETED:
+				std::cout << "Deleted: ";
+				break;
+
+			case MODIFIED:
+				std::cout << "Modified: ";
+				break;
+
+			case RENAMED:
+				std::cout << "Renamed: ";
+				break;
+			}
+
+			std::cout << evt.fileA << std::endl;
+		}
 
 		std::cout << "Press any key or 'q' to quit: ";
 		auto inputChar = std::cin.get();

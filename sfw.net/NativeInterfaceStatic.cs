@@ -16,6 +16,7 @@ namespace sfw.net
         RENAMED = 3
     };
 
+    [StructLayout(LayoutKind.Sequential)]
     struct Event
     {
         EventType type;
@@ -26,16 +27,16 @@ namespace sfw.net
 
     internal static class NativeInterfaceStatic
     {
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_Create@@YAPAXPBD@Z")]
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr NativeInterface_Create(string path);
 
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_Delete@@YAPAXPBD@Z")]
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void NativeInterface_Delete(IntPtr nativeInterface);
 
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_getError@@YA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PAX@Z")]
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern string NativeInterface_getError(IntPtr nativeInterface);
    
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl, EntryPoint = "?NativeInterface_getEvents@@YAHPAXPAPAPAUEvent@@@Z")]
-        public static extern int NativeInterface_getEvents(IntPtr nativeInterface, [Out] out IntPtr data);
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int NativeInterface_getEvents(IntPtr nativeInterface, [Out] [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] Event[] events, int bufferSize);
     }
 }
