@@ -51,7 +51,7 @@ extern "C"
 
 	SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
 
-	SFW_EXPORT_API void TestStructMethod(void** items, int* itemsCount);
+	SFW_EXPORT_API void TestStructMethod(TestStruct** items, int* itemsCount);
 }
 
 #endif

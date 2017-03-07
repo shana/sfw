@@ -151,11 +151,11 @@ void NativeInterface_Delete(void* ptr)
 	delete native_interface;
 }
 
-void TestStructMethod(void** items, int* itemsCount)
+void TestStructMethod(TestStruct** items, int* itemsCount)
 {
 	const auto generateItemCount = 2;
 
-	*items = static_cast<void*>(malloc(sizeof(TestStruct) * generateItemCount));
+	*items = static_cast<TestStruct*>(malloc(sizeof(TestStruct) * generateItemCount));
 
 	auto ptr = reinterpret_cast<char*>(*items);
 	for (auto i = 0; i < sizeof(TestStruct) * generateItemCount; i++, ptr++)

@@ -57,7 +57,7 @@ int main()
 	auto testStruct = new TestStruct*[0];
 	auto testStructCount = new int;
 
-	TestStructMethod(reinterpret_cast<void**>(testStruct), testStructCount);
+	TestStructMethod(testStruct, testStructCount);
 
 	return 0;
 }
