@@ -20,9 +20,9 @@ namespace sfw.net
     struct Event
     {
         EventType type;
-        string directory;
-        string fileA;
-        string fileB;
+        IntPtr directory;
+        IntPtr fileA;
+        IntPtr fileB;
     };
 
     internal static class NativeInterfaceStatic
@@ -36,7 +36,7 @@ namespace sfw.net
         [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern string NativeInterface_getError(IntPtr nativeInterface);
    
-        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("sfw.dll")]
         public static extern void NativeInterface_getEvents(IntPtr nativeInterface, [Out] [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] out Event[] events, out int bufferSize);
         //public static extern void NativeInterface_getEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
     }

@@ -28,16 +28,19 @@ struct EventSimple {
 	char* fileB;
 };
 
-extern "C" SFW_EXPORT_API void* NativeInterface_Create(const char* path);
+extern "C"
+{
+	SFW_EXPORT_API void* NativeInterface_Create(const char* path);
 
-extern "C" SFW_EXPORT_API std::string NativeInterface_getError(void* pNativeInterface);
+	SFW_EXPORT_API std::string NativeInterface_getError(void* pNativeInterface);
 
-extern "C" SFW_EXPORT_API void NativeInterface_getEvents(void* pNativeInterface, EventSimple** events, int* eventsCount);
+	SFW_EXPORT_API void __stdcall NativeInterface_getEvents(void* pNativeInterface, EventSimple** events, int* eventsCount);
 
-extern "C" SFW_EXPORT_API bool NativeInterface_hasErrored(void* pNativeInterface);
+	SFW_EXPORT_API bool NativeInterface_hasErrored(void* pNativeInterface);
 
-extern "C" SFW_EXPORT_API bool NativeInterface_isWatching(void* pNativeInterface);
+	SFW_EXPORT_API bool NativeInterface_isWatching(void* pNativeInterface);
 
-extern "C" SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
+	SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
+}
 
 #endif

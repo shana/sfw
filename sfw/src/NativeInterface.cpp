@@ -77,7 +77,7 @@ std::string NativeInterface_getError(void* ptr)
 	return native_interface->getError();
 }
 
-void NativeInterface_getEvents(void* instance, EventSimple** events, int* eventsCount)
+void __stdcall NativeInterface_getEvents(void* instance, EventSimple** events, int* eventsCount)
 {
 	auto instance1 = static_cast<NativeInterface*>(instance);
 
@@ -86,31 +86,37 @@ void NativeInterface_getEvents(void* instance, EventSimple** events, int* events
 
 	if (eventVector != nullptr)
 	{
-		EventSimple* events2 = (EventSimple*) malloc(sizeof(EventSimple) * eventVector->size());
-		events = &events2;
+		*events = (EventSimple*) malloc(sizeof(EventSimple) * eventVector->size());
+		char* ptr = (char*)*events;
+		for (int i = 0; i < sizeof(EventSimple) * eventVector->size(); i++, ptr++)
+		{
+			*ptr = 'a';
+		}
+		
 
 		for (auto & localEvent : *eventVector)
 		{
-			events2[count].type = localEvent->type;
+			auto evt = ((*events) + count);
+			evt->type = localEvent->type;
 			{
 				size_t len = localEvent->directory.length();
 				char* tmp = (char*)malloc(len * sizeof(char));
 				localEvent->directory.copy(tmp, len, 0);
-				events2[count].directory = tmp;
+				evt->directory = tmp;
 			}
-			events2[count].fileA = nullptr;
+			
+			evt->fileA = nullptr;
 			if (localEvent->fileA.length() > 0)
 			{
-				events2[count].fileA = (char*)malloc(localEvent->fileA.length() * sizeof(char));
-				localEvent->fileA.copy(events2[count].fileA, localEvent->fileA.length(), 0);
+				evt->fileA = (char*)malloc(localEvent->fileA.length() * sizeof(char));
+				localEvent->fileA.copy(evt->fileA, localEvent->fileA.length(), 0);
 			}
 
-			events2[count].fileB = nullptr;
-			
+			evt->fileB = nullptr;
 			if (localEvent->fileB.length() > 0)
 			{
-				events2[count].fileB = (char*)malloc(localEvent->fileB.length() * sizeof(char));
-				localEvent->fileB.copy(events2[count].fileB, localEvent->fileB.length(), 0);
+				evt->fileB = (char*)malloc(localEvent->fileB.length() * sizeof(char));
+				localEvent->fileB.copy(evt->fileB, localEvent->fileB.length(), 0);
 			}
 
 			count++;
