@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
-#include "../sfw/includes/NativeInterface.h"
+#include "../sfw/includes/SFWExport.h"
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
 	while (continueFlag)
 	{
 		auto const bufferSize = 2;
-		auto buffer = new EventSimple[bufferSize];
+		auto buffer = new SFW_Event[bufferSize];
 
 		int eventCount;
 		NativeInterface_getEvents(native_interface, &buffer, &eventCount);

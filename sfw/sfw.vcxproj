@@ -94,7 +94,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;WIN32PROJECT1_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -118,7 +118,7 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;WIN32PROJECT1_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -134,7 +134,7 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;WIN32PROJECT1_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -156,7 +156,7 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;WIN32PROJECT1_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -168,9 +168,9 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="includes\ExportHeader.h" />
     <ClInclude Include="includes\Lock.h" />
     <ClInclude Include="includes\NativeInterface.h" />
+    <ClInclude Include="includes\SFWExport.h" />
     <ClInclude Include="includes\Queue.h" />
     <ClInclude Include="includes\win32\pthread.h" />
     <ClInclude Include="includes\win32\pthreads-win32\config.h" />
@@ -188,6 +188,7 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
   <ItemGroup>
     <ClCompile Include="src\Lock.cpp" />
     <ClCompile Include="src\NativeInterface.cpp" />
+    <ClCompile Include="src\SFWExport.cpp" />
     <ClCompile Include="src\Queue.cpp" />
     <ClCompile Include="src\win32\ReadLoop.cpp" />
     <ClCompile Include="src\win32\ReadLoopRunner.cpp" />

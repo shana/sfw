@@ -19,6 +19,9 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\SFWExport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\Lock.h">
@@ -66,7 +69,7 @@
     <ClInclude Include="includes\win32\pthreads-win32\semaphore.h">
       <Filter>Header Files\pthreads-win32</Filter>
     </ClInclude>
-    <ClInclude Include="includes\ExportHeader.h">
+    <ClInclude Include="includes\SFWExport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
