@@ -29,14 +29,6 @@ struct EventSimple {
 	char* fileB;
 };
 
-struct TestStruct
-{
-	int value;
-	char* name;
-	char* name2;
-	char* name3;
-};
-
 extern "C"
 {
 	SFW_EXPORT_API void* NativeInterface_Create(const char* path);
@@ -50,8 +42,6 @@ extern "C"
 	SFW_EXPORT_API bool NativeInterface_isWatching(void* pNativeInterface);
 
 	SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
-
-	SFW_EXPORT_API void TestStructMethod(TestStruct** items, int* itemsCount);
 }
 
 #endif

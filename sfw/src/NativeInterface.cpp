@@ -151,31 +151,31 @@ void NativeInterface_Delete(void* ptr)
 	delete native_interface;
 }
 
-void TestStructMethod(TestStruct** items, int* itemsCount)
-{
-	const auto generateItemCount = 2;
-
-	*items = static_cast<TestStruct*>(malloc(sizeof(TestStruct) * generateItemCount));
-
-	auto ptr = reinterpret_cast<char*>(*items);
-	for (auto i = 0; i < sizeof(TestStruct) * generateItemCount; i++, ptr++)
-	{
-		*ptr = 'a';
-	}
-
-	auto testStructItems = reinterpret_cast<TestStruct**>(items);
-
-	(*testStructItems)[0].value = 42;
-	(*testStructItems)[0].name = "Hello";
-	(*testStructItems)[0].name2 = nullptr;
-//	(*testStructItems)[0].name2 = "Hello";
-	(*testStructItems)[0].name3 = "Hello";
-
-	(*testStructItems)[1].value = 4242;
-	(*testStructItems)[1].name = "World";
-	(*testStructItems)[1].name2 = nullptr;
-//	(*testStructItems)[1].name2 = "World";
-	(*testStructItems)[1].name3 = "World";
-	
-	*itemsCount = generateItemCount;
-}
+//void TestStructMethod(TestStruct** items, int* itemsCount)
+//{
+//	const auto generateItemCount = 2;
+//
+//	*items = static_cast<TestStruct*>(malloc(sizeof(TestStruct) * generateItemCount));
+//
+//	auto ptr = reinterpret_cast<char*>(*items);
+//	for (auto i = 0; i < sizeof(TestStruct) * generateItemCount; i++, ptr++)
+//	{
+//		*ptr = 'a';
+//	}
+//
+//	auto testStructItems = reinterpret_cast<TestStruct**>(items);
+//
+//	(*testStructItems)[0].value = 42;
+//	(*testStructItems)[0].name = "Hello";
+//	(*testStructItems)[0].name2 = nullptr;
+////	(*testStructItems)[0].name2 = "Hello";
+//	(*testStructItems)[0].name3 = "Hello";
+//
+//	(*testStructItems)[1].value = 4242;
+//	(*testStructItems)[1].name = "World";
+//	(*testStructItems)[1].name2 = nullptr;
+////	(*testStructItems)[1].name2 = "World";
+//	(*testStructItems)[1].name3 = "World";
+//	
+//	*itemsCount = generateItemCount;
+//}
