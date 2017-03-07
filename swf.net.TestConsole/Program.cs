@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
+﻿using System.Linq;
 using System.Threading;
 using sfw.net;
 
@@ -11,32 +8,16 @@ namespace swf.net.TestConsole
     {
         static void Main(string[] args)
         {
-            Debug.WriteLine($@"Output Directory: ""{Environment.CurrentDirectory}""");
-            var path = @"C:\Users\Spade\Desktop\ncrunch_report";
-            var nativeInterface = NativeInterfaceStatic.NativeInterface_Create(path);
-
-            while (true)
+            using (var nativeInterface = new NativeInterface(@"C:\Users\Spade\Desktop\ncrunch_report"))
             {
-                Thread.Sleep(5000);
-
-                IntPtr events;
-                int count;
-
-                NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface, out events, out count);
-
-                var testStructs = new List<Event>();
-           
-                if (count > 0)
+                while (true)
                 {
-                    testStructs.Add(Marshal.PtrToStructure<Event>(events));
-                    count--;
+                    Thread.Sleep(5000);
 
-                    while (count > 0)
+                    var events = nativeInterface.GetEvents();
+                    if (events.Any())
                     {
-                        events = events + Marshal.SizeOf<Event>();
-                        testStructs.Add(Marshal.PtrToStructure<Event>(events));
-
-                        count--;
+                        ;
                     }
                 }
             }
