@@ -7,18 +7,19 @@
 
 class NativeInterface {
 public:
-  NativeInterface(std::string path);
+	NativeInterface(std::string path);
 
-  std::string getError();
-  std::vector<Event*>* getEvents(int bufferSize);
-  std::vector<Event*>* getEvents();
-  bool hasErrored();
-  bool isWatching();
+	std::string getError();
+	std::vector<Event*>* getEvents(int bufferSize);
+	std::vector<Event*>* getEvents();
+	bool hasErrored();
+	bool isWatching();
 
-  ~NativeInterface();
+	~NativeInterface();
+
 private:
-EventQueue mQueue;
-  void *mNativeInterface;
+	EventQueue mQueue;
+	void* mNativeInterface;
 };
 
 struct EventSimple {
@@ -26,6 +27,14 @@ struct EventSimple {
 	char* directory;
 	char* fileA;
 	char* fileB;
+};
+
+struct TestStruct
+{
+	int value;
+	char* name;
+	char* name2;
+	char* name3;
 };
 
 extern "C"
@@ -41,6 +50,8 @@ extern "C"
 	SFW_EXPORT_API bool NativeInterface_isWatching(void* pNativeInterface);
 
 	SFW_EXPORT_API void NativeInterface_Delete(void* pNativeInterface);
+
+	SFW_EXPORT_API void TestStructMethod(void** items, int* itemsCount);
 }
 
 #endif

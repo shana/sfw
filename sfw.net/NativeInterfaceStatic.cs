@@ -39,5 +39,8 @@ namespace sfw.net
         [DllImport("sfw.dll")]
         public static extern void NativeInterface_getEvents(IntPtr nativeInterface, [Out] [MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] out Event[] events, out int bufferSize);
         //public static extern void NativeInterface_getEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
+   
+        [DllImport("sfw.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void TestStructMethod(out IntPtr data, out int dataCount);
     }
 }

@@ -7,15 +7,15 @@
 
 int main()
 {
-	auto path = "C:\\Users\\Spade\\Desktop\\ncrunch_report";
-	auto native_interface = NativeInterface_Create(path);
-
-	auto continueFlag = true;
-	while (continueFlag)
-	{
-		auto const bufferSize = 2;
-		auto buffer = new EventSimple[bufferSize];
-
+//	auto path = "C:\\Users\\Spade\\Desktop\\ncrunch_report";
+//	auto native_interface = NativeInterface_Create(path);
+//
+//	auto continueFlag = true;
+//	while (continueFlag)
+//	{
+//		auto const bufferSize = 2;
+//		auto buffer = new EventSimple[bufferSize];
+//
 //		auto eventCount = NativeInterface_getEvents(native_interface, buffer, bufferSize);
 //		for (auto i = 0; i < eventCount; i++)
 //		{
@@ -42,16 +42,22 @@ int main()
 //
 //			std::cout << evt.fileA << std::endl;
 //		}
+//
+//		std::cout << "Press any key or 'q' to quit: ";
+//		auto inputChar = std::cin.get();
+//		if (inputChar == 'q' || inputChar == 'Q')
+//		{
+//			continueFlag = false;
+//		}
+//	}
+//
+//	NativeInterface_Delete(native_interface);
 
-		std::cout << "Press any key or 'q' to quit: ";
-		auto inputChar = std::cin.get();
-		if (inputChar == 'q' || inputChar == 'Q')
-		{
-			continueFlag = false;
-		}
-	}
+	int stackInt = 3;
+	auto testStruct = new TestStruct*[0];
+	auto testStructCount = new int;
 
-	NativeInterface_Delete(native_interface);
+	TestStructMethod(reinterpret_cast<void**>(testStruct), testStructCount);
 
 	return 0;
 }

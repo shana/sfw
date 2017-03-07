@@ -1,36 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using sfw.net;
 
 namespace swf.net.TestConsole
 {
+    struct TestStruct
+    {
+        int value;
+        string name;
+        string name2;
+        string name3;
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            Debug.WriteLine($@"Output Directory: ""{Environment.CurrentDirectory}""");
-            var path = @"C:\Users\Spade\Desktop\ncrunch_report";
-            var nativeInterface = NativeInterfaceStatic.NativeInterface_Create(path);
+            IntPtr events;// = IntPtr.Zero;
+            int count;
+            
+            NativeInterfaceStatic.TestStructMethod(out events, out count);
 
-            while (true)
+            List<TestStruct> testStructs = new List<TestStruct>();
+            if (count > 0)
             {
-                Thread.Sleep(5000);
+                testStructs.Add(Marshal.PtrToStructure<TestStruct>(events));
+                count--;
 
-                //IntPtr events;// = IntPtr.Zero;
-
-                int count;
-                Event[] events;
-                NativeInterfaceStatic.NativeInterface_getEvents(nativeInterface, out events, out count);
-
-                if (count > 0)
+                while (count > 0)
                 {
-                    ;
+                    events = events + Marshal.SizeOf<TestStruct>();
+                    testStructs.Add(Marshal.PtrToStructure<TestStruct>(events));
+
+                    count--;
                 }
             }
         }
