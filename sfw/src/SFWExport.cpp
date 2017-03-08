@@ -1,6 +1,4 @@
-﻿#if WIN32
-#include "stdafx.h"
-#endif
+﻿#include "stdafx.h"
 
 #include <iterator>
 #include <vector>

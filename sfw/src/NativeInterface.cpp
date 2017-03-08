@@ -1,6 +1,4 @@
-#if WIN32
 #include "stdafx.h"
-#endif
 
 #include "../includes/NativeInterface.h"
 #include <stdio.h>
