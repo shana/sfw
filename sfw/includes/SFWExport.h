@@ -1,7 +1,5 @@
-﻿#ifndef NSFW_NATIVE_INTERFACE_EXPORT_H
-#define NSFW_NATIVE_INTERFACE_EXPORT_H
-
-#pragma once
+﻿#ifndef SFW_EXPORT_H
+#define SFW_EXPORT_H
 
 #ifdef SFW_EXPORTS
 #define SFW_EXPORT_API __declspec(dllexport)
