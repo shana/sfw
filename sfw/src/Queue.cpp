@@ -1,4 +1,7 @@
+#if _WIN32
 #include "stdafx.h"
+#endif
+
 #include "../includes/Queue.h"
 
 #pragma unmanaged

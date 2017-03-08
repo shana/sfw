@@ -1,5 +1,9 @@
+#if _WIN32
 #include "stdafx.h"
+#endif
+
 #include "../includes/NativeInterface.h"
+#include <stdio.h>
 #include <iterator>
 #include <vector>
 #include <algorithm>

@@ -5,7 +5,7 @@
 
 extern "C" {
 #include "../../openpa/src/opa_queue.h"
-#include "../../openpa/src/primitives/opa_nt_intrinsics.h"
+#include "../../openpa/src/opa_primitives.h"
 }
 
 enum EventType {

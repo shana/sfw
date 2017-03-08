@@ -1,10 +1,10 @@
-CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
+CXXFLAGS =	-std=c++0x -O2 -g -Wall -Wno-unknown-pragmas -fmessage-length=0 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1
 
-OBJS =		
+OBJS =		sfw/stdafx.o sfw/src/Queue.o sfw/src/Lock.o sfw/src/NativeInterface.o sfw/src/linux/InotifyService.o sfw/src/linux/InotifyTree.o sfw/src/linux/InotifyEventLoop.cpp
 
 LIBS =
 
-TARGET =	sfw
+TARGET =	build/linux/sfw
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
