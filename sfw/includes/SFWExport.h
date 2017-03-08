@@ -1,14 +1,30 @@
 ﻿#ifndef SFW_EXPORT_H
 #define SFW_EXPORT_H
 
+//http://stackoverflow.com/questions/2164827/explicitly-exporting-shared-library-functions-in-linux#2164853
+
+#if defined(_MSC_VER)
+//  Microsoft 
 #ifdef SFW_EXPORTS
 #define SFW_EXPORT_API __declspec(dllexport)
 #else
 #define SFW_EXPORT_API __declspec(dllimport)
 #endif
+#elif defined(__GNUC__)
+//  GCC
+#ifdef SFW_EXPORTS
+#define SFW_EXPORT_API __attribute__((visibility("default")))
+#else
+#define SFW_EXPORT_API
+#endif
+#else
+//  do nothing and hope for the best?
+#define SFW_EXPORT_API
+#pragma warning Unknown dynamic link import/export semantics.
+#endif
 
-#include "Queue.h";
-#include "NativeInterface.h";
+#include "Queue.h"
+#include "NativeInterface.h"
 
 struct SFW_Event {
 	EventType type;
