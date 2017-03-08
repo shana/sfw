@@ -23,6 +23,10 @@
 #pragma warning Unknown dynamic link import/export semantics.
 #endif
 
+#ifndef _WIN32
+#define __stdcall
+#endif
+
 #include "Queue.h"
 #include "NativeInterface.h"
 
