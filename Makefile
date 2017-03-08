@@ -8,16 +8,21 @@ TARGET =	build/linux/sfw
 
 PRECOMPILEDHEADER =	sfw/stdafx.h.pch
 
-$(TARGET):	$(PRECOMPILEDHEADER) $(OBJS) openpa
+OPENPA_STATIC_OUTPUT_FOLDER =	openpa/out/
+
+OPENPA_STATIC_LIB =	$(OPENPA_STATIC_OUTPUT_FOLDER)Default/obj.target/libopenpa.a
+
+$(TARGET):	$(OPENPA_STATIC_LIB) $(PRECOMPILEDHEADER) $(OBJS)
 	$(CXX) -std=c++11 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -o $(TARGET) $(OBJS) $(LIBS)
 
-sfw/stdafx.h.pch:
+$(PRECOMPILEDHEADER):
 	$(CXX) -std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -x c++-header sfw/stdafx.h -o $(PRECOMPILEDHEADER)
 
-openpa:
+$(OPENPA_STATIC_LIB):
 	$(MAKE) -C openpa/ all
 
 all:	$(TARGET)
 
 clean:
 	rm -f $(OBJS) $(TARGET) $(PRECOMPILEDHEADER)
+	rm -rf $(OPENPA_STATIC_OUTPUT_FOLDER)
