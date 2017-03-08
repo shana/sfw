@@ -5,6 +5,7 @@
 #include <iterator>
 #include <vector>
 #include <algorithm>
+#include <string.h>
 
 #include "../includes/NativeInterface.h"
 #include "../includes/SFWExport.h"
