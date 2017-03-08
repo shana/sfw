@@ -45,7 +45,7 @@ std::vector<Event*>* NativeInterface::getEvents(int bufferSize)
 	}
 	else
 	{
-		count = min(mQueue.count(), bufferSize);
+		count = std::min(mQueue.count(), bufferSize);
 	}
 
 	std::vector<Event *> *events = new std::vector<Event *>;
