@@ -2,6 +2,8 @@
 /ipch
 
 *.o
+*.d
+*.a
 *.pch
 
 *.user
