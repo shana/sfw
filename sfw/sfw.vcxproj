@@ -96,6 +96,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -120,12 +121,22 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\StanleyGoldman\Documents\Projects\sfw\lib\pthreads-win32-2.9.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /F "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\test-console\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\test-console\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\sfw.net.TestConsole\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\sfw.net.TestConsole\$(ConfigurationName)\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -136,6 +147,7 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -146,7 +158,13 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <AdditionalDependencies>pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"</Command>
+      <Command>xcopy /Y /F "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\test-console\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\test-console\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\sfw.net.TestConsole\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\sfw.net.TestConsole\$(ConfigurationName)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -158,6 +176,7 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -166,6 +185,15 @@ xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\StanleyGoldman\Documents\Projects\sfw\lib\pthreads-win32-2.9.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y /F "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x86\pthreadVC2.dll" "$(OutDir)"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\test-console\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\test-console\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\sfw.net.TestConsole\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\sfw.net.TestConsole\$(ConfigurationName)\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="includes\Lock.h" />
