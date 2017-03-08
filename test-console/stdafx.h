@@ -3,13 +3,16 @@
 // are changed infrequently
 //
 
-#pragma once
+#ifndef STDAFX_H
+#define STDAFX_H
 
+#if WIN32
 #include "targetver.h"
+#include <tchar.h>
+#endif
 
 #include <stdio.h>
-#include <tchar.h>
-
-
 
 // TODO: reference additional headers your program requires here
+
+#endif

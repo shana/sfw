@@ -1,25 +1,33 @@
 CXXFLAGS =	-std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -fmessage-length=0 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -I sfw/ -fpic
 
-OBJS =		sfw/stdafx.o sfw/src/Queue.o sfw/src/Lock.o sfw/src/NativeInterface.o sfw/src/SFWExport.o sfw/src/linux/InotifyService.o sfw/src/linux/InotifyTree.o sfw/src/linux/InotifyEventLoop.o
+SFW_OBJS =	sfw/stdafx.o sfw/src/Queue.o sfw/src/Lock.o sfw/src/NativeInterface.o sfw/src/SFWExport.o sfw/src/linux/InotifyService.o sfw/src/linux/InotifyTree.o sfw/src/linux/InotifyEventLoop.o
+
+TEST_CONSOLE_OBJS =	test-console/stdafx.o test-console/test-console.o
 
 LIBS =
 
-TARGET =	build/linux/sfw/sfw.so
+BUILD_OUPUT_FOLDER =	build/linux/
 
-PRECOMPILEDHEADER =	sfw/stdafx.h.pch
+SFW_SHARED_LIB =	$(BUILD_OUPUT_FOLDER)sfw/sfw.so
+
+SFW_PRECOMPILEDHEADER =	sfw/stdafx.h.pch
+
+TEST_CONSOLE_PRECOMPILEDHEADER =	test-console/stdafx.h.pch
+
+TEST_CONSOLE =	$(BUILD_OUPUT_FOLDER)test-console/test-console
 
 OPENPA_STATIC_OUTPUT_FOLDER =	openpa/out/
 
-OPENPA_STATIC_LIB =	build/linux/openpa/libopenpa.a
+OPENPA_STATIC_LIB =	$(BUILD_OUPUT_FOLDER)openpa/libopenpa.a
 
-$(TARGET):	$(OPENPA_STATIC_LIB) $(PRECOMPILEDHEADER) $(OBJS)
+$(SFW_SHARED_LIB):	$(OPENPA_STATIC_LIB) $(SFW_PRECOMPILEDHEADER) $(SFW_OBJS)
 	mkdir -p build
 	mkdir -p build/linux
 	mkdir -p build/linux/sfw
-	$(CXX) -std=c++11 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -shared -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) -std=c++11 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -shared -o $(SFW_SHARED_LIB) $(SFW_OBJS) $(LIBS)
 
-$(PRECOMPILEDHEADER):
-	$(CXX) -std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -x c++-header sfw/stdafx.h -o $(PRECOMPILEDHEADER)
+$(SFW_PRECOMPILEDHEADER):
+	$(CXX) -std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -x c++-header sfw/stdafx.h -o $(SFW_PRECOMPILEDHEADER)
 
 $(OPENPA_STATIC_LIB):
 	mkdir -p build
@@ -28,8 +36,17 @@ $(OPENPA_STATIC_LIB):
 	$(MAKE) -C openpa/ all
 	cp -f $(OPENPA_STATIC_OUTPUT_FOLDER)Default/obj.target/libopenpa.a $(OPENPA_STATIC_LIB)
 
-all:	$(TARGET)
+$(TEST_CONSOLE_PRECOMPILEDHEADER):
+	$(CXX) -std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -x c++-header sfw/stdafx.h -o $(TEST_CONSOLE_PRECOMPILEDHEADER)
+
+$(TEST_CONSOLE):	$(SFW_SHARED_LIB) $(TEST_CONSOLE_PRECOMPILEDHEADER) $(SFW_OBJS)
+	mkdir -p build
+	mkdir -p build/linux
+	mkdir -p build/linux/sfw
+	$(CXX) -std=c++11 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -shared -o $(SFW_SHARED_LIB) $(TEST_CONSOLE_OBJS) $(LIBS)
+
+all:	$(SFW_SHARED_LIB)
 
 clean:
-	rm -f $(OBJS) $(TARGET) $(PRECOMPILEDHEADER)
-	rm -rf $(OPENPA_STATIC_OUTPUT_FOLDER)
+	rm -f $(SFW_OBJS) $(SFW_PRECOMPILEDHEADER) $(TEST_CONSOLE_PRECOMPILEDHEADER)
+	rm -rf $(OPENPA_STATIC_OUTPUT_FOLDER) $(BUILD_OUPUT_FOLDER)
