@@ -41,4 +41,7 @@
       <Name>sfw.net-mono</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
 </Project>
