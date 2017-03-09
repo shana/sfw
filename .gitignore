@@ -12,6 +12,7 @@
 /*.db
 
 .metadata
+*.userprefs
 
 build
 obj
