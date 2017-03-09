@@ -5,10 +5,17 @@
 #include <iostream>
 #include "../sfw/includes/SFWExport.h"
 
-int main()
+int main(int argc, char* argv[])
 {
-	auto path = "C:\\Users\\Spade\\Desktop\\ncrunch_report";
-	auto native_interface = NativeInterface_Create(path);
+	if (argc != 2)
+	{
+		std::cerr << "Missing path" << std::endl;
+		return 1;
+	}
+
+	std::cout << "Monitoring Path: " << argv[1] << std::endl;
+
+	auto native_interface = NativeInterface_Create(argv[1]);
 
 	auto continueFlag = true;
 	while (continueFlag)
