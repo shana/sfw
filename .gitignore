@@ -11,6 +11,8 @@
 /*.opendb
 /*.db
 
+.metadata
+
 build
 obj
 bin
