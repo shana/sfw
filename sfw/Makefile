@@ -6,18 +6,17 @@ LIBS = $(OPENPA_STATIC_LIB)
 
 BUILD_OUPUT_FOLDER =	build/linux
 
-TARGET =	$(BUILD_OUPUT_FOLDER)/sfw/sfw.so
+TARGET =	$(BUILD_OUPUT_FOLDER)/sfw.so
 
 PRECOMPILEDHEADER =	stdafx.h.pch
+
+$(PRECOMPILEDHEADER):
+	$(CXX) -std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -x c++-header stdafx.h -o $(PRECOMPILEDHEADER)
 
 $(TARGET):	$(PRECOMPILEDHEADER) $(OBJS)
 	mkdir -p build
 	mkdir -p build/linux
-	mkdir -p build/linux/sfw
 	$(CXX) -std=c++11 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -shared -o $(TARGET) $(OBJS) $(LIBS)
-
-$(PRECOMPILEDHEADER):
-	$(CXX) -std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -x c++-header stdafx.h -o $(PRECOMPILEDHEADER)
 
 all:	$(TARGET)
 
