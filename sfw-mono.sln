@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bindings", "Bindings", "{5A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net-mono", "sfw.net\sfw.net-mono.csproj", "{4702E558-CFCB-42BA-A890-D024BAFC0789}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "swf.net.TestConsole-mono", "swf.net.TestConsole\swf.net.TestConsole-mono.csproj", "{413FDC8A-404A-496E-A5C7-0D01E7490CBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net.TestConsole-mono", "sfw.net.TestConsole\sfw.net.TestConsole-mono.csproj", "{413FDC8A-404A-496E-A5C7-0D01E7490CBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
