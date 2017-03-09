@@ -1,17 +1,30 @@
-BUILD_OUPUT_FOLDER =	build/linux/
+CWD := $(shell readlink -f ./)
 
-OPENPA_STATIC_OUTPUT_FOLDER =	openpa/out/
+BUILD_OUTPUT_FOLDER := $(CWD)/build
 
-OPENPA_STATIC_LIB =	$(BUILD_OUPUT_FOLDER)openpa/libopenpa.a
+OPENPA_STATIC_LIB_FOLDER := $(BUILD_OUTPUT_FOLDER)/linux/openpa/
+OPENPA_STATIC_LIB := $(OPENPA_STATIC_LIB_FOLDER)libopenpa.a
 
-$(OPENPA_STATIC_LIB):
-	mkdir -p build
-	mkdir -p build/linux
-	mkdir -p build/linux/openpa
-	$(MAKE) -C openpa/ all
-	cp -f $(OPENPA_STATIC_OUTPUT_FOLDER)Default/obj.target/libopenpa.a $(OPENPA_STATIC_LIB)
+OPENPA_PROJECT_STATIC_OUTPUT_FOLDER := openpa/out/
+OPENPA_PROJECT_STATIC_OUTPUT_TARGET := $(OPENPA_PROJECT_STATIC_OUTPUT_FOLDER)Default/obj.target/
 
-all:	$(OPENPA_STATIC_LIB)
-
+all:
+	mkdir -p $(BUILD_OUTPUT_FOLDER)
+	mkdir -p $(BUILD_OUTPUT_FOLDER)/linux
+	
+	##OPENPA
+	
+	mkdir -p $(OPENPA_STATIC_LIB_FOLDER)
+	
+	$(MAKE) -C openpa all CFLAGS=-fpic
+	cp -urv $(OPENPA_PROJECT_STATIC_OUTPUT_TARGET)* $(OPENPA_STATIC_LIB_FOLDER)
+	
+	##SFW
+	
+	mkdir -p $(BUILD_OUTPUT_FOLDER)/linux/sfw
+	
+	$(MAKE) -C sfw all OPENPA_STATIC_LIB=$(OPENPA_STATIC_LIB)
+	
+	
 clean:
 	rm -rf $(OPENPA_STATIC_OUTPUT_FOLDER) $(BUILD_OUPUT_FOLDER)
