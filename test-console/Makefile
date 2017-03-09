@@ -1,8 +1,8 @@
 CXXFLAGS =	-std=c++11 -O2 -g -Wall -Wno-unknown-pragmas -fmessage-length=0 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -I ./
 
-OBJS =	stdafx.o test-console/test-console.o
+OBJS =	stdafx.o test-console.o
 
-LIBS =
+LIBS = $(OUTPUT_SFW_LIB)
 
 BUILD_OUPUT_FOLDER =	build/linux
 

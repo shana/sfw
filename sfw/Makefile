@@ -16,7 +16,7 @@ $(PRECOMPILEDHEADER):
 $(TARGET):	$(PRECOMPILEDHEADER) $(OBJS)
 	mkdir -p build
 	mkdir -p build/linux
-	$(CXX) -std=c++11 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -shared -o $(TARGET) $(OBJS) $(LIBS)
+	$(CXX) -std=c++11 -DOPA_HAVE_GCC_INTRINSIC_ATOMICS=1 -pthread -shared -o $(TARGET) $(OBJS) $(LIBS)
 
 all:	$(TARGET)
 
