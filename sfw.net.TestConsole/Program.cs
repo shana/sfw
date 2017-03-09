@@ -8,7 +8,13 @@ namespace sfw.net.TestConsole
     {
         static int Main(string[] args)
         {
-            var path = args[0];
+            string path = null;
+
+            if (args.Any())
+            {
+                path = args[0];
+            }
+
             if (string.IsNullOrEmpty(path))
             {
                 Console.WriteLine("Missing Path");
