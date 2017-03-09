@@ -21,4 +21,4 @@ $(TARGET):	$(PRECOMPILEDHEADER) $(OBJS)
 all:	$(TARGET)
 
 clean:
-	rm -rf $(BUILD_OUPUT_FOLDER)
+	rm -rf $(BUILD_OUPUT_FOLDER) $(OBJS)
