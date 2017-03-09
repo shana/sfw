@@ -1,25 +1,48 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 
 namespace sfw.net.TestConsole
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            using (var nativeInterface = new NativeInterface(@"C:\Users\Spade\Desktop\ncrunch_report"))
+            var path = args[0];
+            if (string.IsNullOrEmpty(path))
             {
-                while (true)
-                {
-                    Thread.Sleep(5000);
+                Console.WriteLine("Missing Path");
+                return 1;
+            }
 
+            Console.WriteLine("Montoring Path: " + path);
+
+            using (var nativeInterface = new NativeInterface(path))
+            {
+                var continueFlag = true;
+                while (continueFlag)
+                {
                     var events = nativeInterface.GetEvents();
-                    if (Enumerable.Any<sfw.net.Event>(events))
+                    if (events.Any())
                     {
-                        ;
+                        foreach (Event @event in events)
+                        {
+                            Console.WriteLine($"{@event.Type}: {@event.FileA}");
+                        }
+                    }
+
+                    Console.Write("Press any key to continue or 'q' to quit: ");
+                    var read = Console.ReadKey();
+                    Console.WriteLine(string.Empty);
+
+                    if (read.KeyChar == 'q' || read.KeyChar == 'Q')
+                    {
+                        continueFlag = false;
                     }
                 }
             }
+
+            return 0;
         }
     }
 }

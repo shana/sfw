@@ -5,9 +5,9 @@ namespace sfw.net
     [StructLayout(LayoutKind.Sequential)]
     struct Event
     {
-        EventType type;
-        string directory;
-        string fileA;
-        string fileB;
+        public EventType Type;
+        public string Directory;
+        public string FileA;
+        public string FileB;
     };
 }
