@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using System.Threading;
-using sfw.net;
 
-namespace swf.net.TestConsole
+namespace sfw.net.TestConsole
 {
     class Program
     {
@@ -15,7 +14,7 @@ namespace swf.net.TestConsole
                     Thread.Sleep(5000);
 
                     var events = nativeInterface.GetEvents();
-                    if (events.Any())
+                    if (Enumerable.Any<sfw.net.Event>(events))
                     {
                         ;
                     }

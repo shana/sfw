@@ -36,4 +36,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 [assembly: InternalsVisibleTo("sfw.net.UnitTests", AllInternalsVisible = true)]
-[assembly: InternalsVisibleTo("swf.net.TestConsole", AllInternalsVisible = true)]
+[assembly: InternalsVisibleTo("sfw.net.TestConsole", AllInternalsVisible = true)]

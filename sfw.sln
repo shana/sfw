@@ -14,11 +14,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net", "sfw.net\sfw.net.
 		{FDA851B2-02AA-44C8-B2E5-381EC4BEF027} = {FDA851B2-02AA-44C8-B2E5-381EC4BEF027}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "swf.net.TestConsole", "swf.net.TestConsole\swf.net.TestConsole.csproj", "{3AC04961-E44F-44A3-8846-71BBB8001401}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{FA371A27-F7C7-4B27-8D26-1ACFB890B639}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bindings", "Bindings", "{5A70C5E5-3B76-44E0-A024-DBB77D5A47E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net.TestConsole", "sfw.net.TestConsole\sfw.net.TestConsole.csproj", "{3AC04961-E44F-44A3-8846-71BBB8001401}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,8 +107,11 @@ Global
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Debug|x86.Build.0 = Debug|Any CPU
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Default|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC04961-E44F-44A3-8846-71BBB8001401}.Default|Any CPU.Build.0 = Debug|Any CPU
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Default|x64.ActiveCfg = Debug|Any CPU
+		{3AC04961-E44F-44A3-8846-71BBB8001401}.Default|x64.Build.0 = Debug|Any CPU
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Default|x86.ActiveCfg = Debug|Any CPU
+		{3AC04961-E44F-44A3-8846-71BBB8001401}.Default|x86.Build.0 = Debug|Any CPU
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3AC04961-E44F-44A3-8846-71BBB8001401}.Release|x64.ActiveCfg = Release|Any CPU
