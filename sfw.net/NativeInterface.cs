@@ -33,13 +33,13 @@ namespace sfw.net
 
             if (count > 0)
             {
-                events.Add(Marshal.PtrToStructure<Event>(eventPtr));
+                events.Add((Event) Marshal.PtrToStructure(eventPtr, typeof(Event)));
                 count--;
 
                 while (count > 0)
                 {
-                    eventPtr = eventPtr + Marshal.SizeOf<Event>();
-                    events.Add(Marshal.PtrToStructure<Event>(eventPtr));
+                    eventPtr = new IntPtr(eventPtr.ToInt64() + Marshal.SizeOf(typeof(Event)));
+                    events.Add((Event) Marshal.PtrToStructure(eventPtr, typeof(Event)));
 
                     count--;
                 }
