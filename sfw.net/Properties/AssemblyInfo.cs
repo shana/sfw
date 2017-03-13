@@ -37,3 +37,4 @@ using System.Runtime.InteropServices;
 
 [assembly: InternalsVisibleTo("sfw.net.UnitTests", AllInternalsVisible = true)]
 [assembly: InternalsVisibleTo("sfw.net.TestConsole", AllInternalsVisible = true)]
+[assembly: InternalsVisibleTo("GitHub.Unity", AllInternalsVisible = true)]
