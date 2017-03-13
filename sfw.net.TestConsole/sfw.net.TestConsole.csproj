@@ -34,6 +34,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>..\build\win32\sfw.net.TestConsole\Debug\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
