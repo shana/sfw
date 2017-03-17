@@ -1,7 +1,7 @@
 #ifndef LOCK_H
 #define LOCK_H
 
-#if WIN32
+#if WIN32 || WIN64
 #include "win32/pthread.h"
 #else
 #include <pthread.h>
