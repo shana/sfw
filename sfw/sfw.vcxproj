@@ -106,12 +106,18 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /F "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\$(PlatformTarget)\pthreadVC2.dll" "$(OutDir)"
+
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\$(PlatformTarget)\test-console\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\test-console\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net.TestConsole\$(ConfigurationName)\"
-xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net.TestConsole\$(ConfigurationName)\"</Command>
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net.TestConsole\$(ConfigurationName)\"
+
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\AnyCPU\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\AnyCPU\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\AnyCPU\sfw.net.TestConsole\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\AnyCPU\sfw.net.TestConsole\$(ConfigurationName)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -160,12 +166,18 @@ xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\
     </Link>
     <PostBuildEvent>
       <Command>xcopy /Y /F "$(SolutionDir)lib\pthreads-win32-2.9.1\dll\$(PlatformTarget)\pthreadVC2.dll" "$(OutDir)"
+
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\$(PlatformTarget)\test-console\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\test-console\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net\$(ConfigurationName)\"
 xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net.TestConsole\$(ConfigurationName)\"
-xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net.TestConsole\$(ConfigurationName)\"</Command>
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\$(PlatformTarget)\sfw.net.TestConsole\$(ConfigurationName)\"
+
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\AnyCPU\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\AnyCPU\sfw.net\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.dll" "$(SolutionDir)build\win\AnyCPU\sfw.net.TestConsole\$(ConfigurationName)\"
+xcopy /Y /F "$(SolutionDir)build\win\$(PlatformTarget)\sfw\$(ConfigurationName)\*.pdb" "$(SolutionDir)build\win\AnyCPU\sfw.net.TestConsole\$(ConfigurationName)\"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
