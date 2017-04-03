@@ -1,11 +1,22 @@
 /.vs
 /ipch
+.idea
 
+*.in
+Makefile
+configure
+.dirstamp
+stamp-*
+
+*.la
+*.lo
 *.o
 *.d
 *.a
 *.pch
-
+*.dylib
+*.dll
+*.so
 *.user
 
 /*.opendb

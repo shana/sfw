@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfw", "sfw\sfw.vcxproj", "{FDA851B2-02AA-44C8-B2E5-381EC4BEF027}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfw", "src\sfw\sfw.vcxproj", "{FDA851B2-02AA-44C8-B2E5-381EC4BEF027}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openpa", "openpa\openpa.vcxproj", "{59BCD980-2FBA-0987-D4C5-76707C3607BC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openpa", "src\openpa\openpa.vcxproj", "{59BCD980-2FBA-0987-D4C5-76707C3607BC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test-console", "test-console\test-console.vcxproj", "{05EBB99F-CC48-43AA-96FE-B74431960515}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test-console", "tests\test-console\test-console.vcxproj", "{05EBB99F-CC48-43AA-96FE-B74431960515}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net", "sfw.net\sfw.net.csproj", "{1ACFB048-3E82-4AB8-AE1C-B3BD8E5F1E0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net", "src\bindings\sfw.net\sfw.net.csproj", "{1ACFB048-3E82-4AB8-AE1C-B3BD8E5F1E0C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{FDA851B2-02AA-44C8-B2E5-381EC4BEF027} = {FDA851B2-02AA-44C8-B2E5-381EC4BEF027}
 	EndProjectSection
@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{FA37
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bindings", "Bindings", "{5A70C5E5-3B76-44E0-A024-DBB77D5A47E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net.TestConsole", "sfw.net.TestConsole\sfw.net.TestConsole.csproj", "{3AC04961-E44F-44A3-8846-71BBB8001401}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfw.net.TestConsole", "tests\sfw.net.TestConsole\sfw.net.TestConsole.csproj", "{3AC04961-E44F-44A3-8846-71BBB8001401}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
