@@ -1,0 +1,1 @@
+SUBDIRS = test-console sfw.net.TestConsole

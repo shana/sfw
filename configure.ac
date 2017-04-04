@@ -1,12 +1,15 @@
 AC_INIT([sfw], [1.0])
 AC_CONFIG_SRCDIR([README.md])
 AC_CONFIG_HEADERS([src/config.h])
+AC_CONFIG_MACRO_DIRS([m4])
+
 AC_CANONICAL_HOST
 AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 AM_MAINTAINER_MODE
+
 AC_PROG_INSTALL
-AC_CONFIG_MACRO_DIRS([m4])
+AC_PROG_LN_S
 AC_PROG_CXX
 AX_CXX_COMPILE_STDCXX_11
 LT_INIT
@@ -91,6 +94,8 @@ AC_CONFIG_FILES([
 	src/Makefile
 	src/openpa/Makefile
 	src/sfw/Makefile
+	tests/Makefile
+	tests/test-console/Makefile
 
 ])
 AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])

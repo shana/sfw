@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include <SFWExport.h>
+#include "SFWExport.h"
 
 int main(int argc, char* argv[])
 {
