@@ -1,4 +1,8 @@
-#include <FSEventsService.h>
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "FSEventsService.h"
 #include <iostream>
 
 FSEventsService::FSEventsService(EventQueue &queue, std::string path):

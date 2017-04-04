@@ -32,7 +32,7 @@ case "$target_cpu" in
 	;;
 esac
 
-INCLUDE_PATHS="src/openpa src/sfw/includes"
+INCLUDE_PATHS="src src/openpa src/sfw/includes src/openpa/src"
 
 case "$target_os" in
 	mingw* | cygwin*)

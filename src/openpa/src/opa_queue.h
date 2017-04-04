@@ -12,7 +12,7 @@
 #define OPA_QUEUE_H_INCLUDED
 
 #ifdef HAVE_CONFIG_H
-#include "../../../config.h"
+#include "config.h"
 #endif
 
 #include "opa_primitives.h"

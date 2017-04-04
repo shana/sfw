@@ -4,8 +4,8 @@
 #include <string>
 
 extern "C" {
-#include "../../openpa/src/opa_queue.h"
-#include "../../openpa/src/opa_primitives.h"
+#include "opa_queue.h"
+#include "opa_primitives.h"
 }
 
 enum EventType {

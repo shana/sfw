@@ -24,6 +24,7 @@ os_sources = \
 endif
 
 sfw_la_SOURCES = \
+	../config.h \
 	src/Lock.cpp \
 	src/Queue.cpp \
 	src/NativeInterface.cpp \

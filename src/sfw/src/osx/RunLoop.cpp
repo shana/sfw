@@ -1,4 +1,8 @@
-#include <RunLoop.h>
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "RunLoop.h"
 
 void *scheduleRunLoopWork(void *runLoop) {
   ((RunLoop *)runLoop)->work();

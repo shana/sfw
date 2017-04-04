@@ -1,4 +1,8 @@
-#include <InotifyEventLoop.h>
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "InotifyEventLoop.h"
 
 InotifyEventLoop::InotifyEventLoop(
   int inotifyInstance,

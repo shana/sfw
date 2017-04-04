@@ -1,4 +1,8 @@
-#include <NativeInterface.h>
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "NativeInterface.h"
 #include <stdio.h>
 #include <iterator>
 #include <vector>

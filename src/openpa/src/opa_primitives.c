@@ -5,7 +5,7 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include "../../../config.h"
+#include "config.h"
 #endif
 
 /* FIXME For now we rely on pthreads for our IPC locks.  This is fairly

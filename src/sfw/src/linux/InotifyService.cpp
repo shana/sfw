@@ -1,4 +1,8 @@
-#include <InotifyService.h>
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "InotifyService.h"
 
 InotifyService::InotifyService(EventQueue &queue, std::string path):
   mEventLoop(NULL),

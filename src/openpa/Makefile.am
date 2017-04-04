@@ -7,8 +7,8 @@ os_sources=src/primitives/opa_nt_intrinsics.h
 endif
 
 libopenpa_la_SOURCES = \
+	../config.h \
 	src/primitives/opa_emulated.h \
-	src/opa_config.h \
 	src/opa_primitives.h \
 	src/opa_primitives.c \
 	src/opa_util.h \

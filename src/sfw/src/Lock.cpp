@@ -1,4 +1,8 @@
-#include <Lock.h>
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "Lock.h"
 
 Lock::Lock(pthread_mutex_t &mutex)
   : mMutex(mutex) {
