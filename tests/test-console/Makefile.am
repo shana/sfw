@@ -3,18 +3,24 @@ check_PROGRAMS = test-console
 includes = $(addprefix -I$(top_srcdir)/, $(INCLUDE_PATHS))
 test_console_CPPFLAGS = $(CPPFLAGS) $(includes)
 
+test_console_LDADD = $(top_builddir)/src/sfw/libsfw.la
+
 AM_DEFAULT_SOURCE_EXT = .cpp
 
-ifdef TARGET_MAC
-libsfw.bundle: $(top_builddir)/src/sfw/.libs/sfw.0.so
-	$(LN_S) $< $@
+if TARGET_MAC
+libsfw.dylib: $(top_builddir)/src/sfw/.libs/libsfw.0.dylib
+	$(LN_S) -f $< $@
 
-test-console.o: libsfw.bundle
+check-local: libsfw.dylib
+clean-local:
+	$(RM) libsfw.dylib
 endif
 
-ifdef TARGET_LINUX
+if TARGET_LINUX
 libsfw.so: $(top_builddir)/src/sfw/.libs/libsfw.0.so
-	$(LN_S) $< $@
+	$(LN_S) -f $< $@
 
-test-console.o: libsfw.so
+check-local: libsfw.so
+clean-local:
+	$(RM) libsfw.so
 endif
