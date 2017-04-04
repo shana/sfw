@@ -4,7 +4,9 @@
  *      See COPYRIGHT in top-level directory.
  */
 
+#ifdef HAVE_CONFIG_H
 #include "../../../config.h"
+#endif
 
 /* FIXME For now we rely on pthreads for our IPC locks.  This is fairly
    portable, although it is obviously not 100% portable.  We need to

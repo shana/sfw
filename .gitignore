@@ -18,6 +18,11 @@ stamp-*
 *.dll
 *.so
 *.user
+*.obj
+*.log
+*.status
+*.pdb
+*.tlog
 
 /*.opendb
 /*.db
@@ -25,6 +30,8 @@ stamp-*
 .metadata
 *.userprefs
 
-build
-obj
-bin
+build/
+obj/
+bin/
+[dD]ebug/
+[rR]elease/

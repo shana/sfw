@@ -16,9 +16,6 @@
     <ClCompile Include="src\win32\ReadLoopRunner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\SFWExport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,12 +34,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\win32\ReadLoopRunner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\win32\pthread.h">
@@ -83,5 +74,8 @@
     <Filter Include="Header Files\pthreads-win32">
       <UniqueIdentifier>{74912962-3bde-400b-a67b-ec92af299324}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x64\pthreadVC2.dll" />
   </ItemGroup>
 </Project>

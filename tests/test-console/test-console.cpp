@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "../sfw/includes/SFWExport.h"
+#include <SFWExport.h>
 
 int main(int argc, char* argv[])
 {
@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 		auto buffer = new SFW_Event[bufferSize];
 
 		int eventCount;
-		NativeInterface_getEvents(native_interface, &buffer, &eventCount);
+		NativeInterface_GetEvents(native_interface, &buffer, &eventCount);
 		for (auto i = 0; i < eventCount; i++)
 		{
 			auto evt = buffer[i];

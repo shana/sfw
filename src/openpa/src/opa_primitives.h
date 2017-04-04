@@ -7,7 +7,9 @@
 #ifndef OPA_PRIMITIVES_H_INCLUDED
 #define OPA_PRIMITIVES_H_INCLUDED
 
+#ifdef HAVE_CONFIG_H
 #include "../../../config.h"
+#endif
 #include "opa_util.h"
 
 /* Clean up some of the opa_config.h definitions.  This is a consequence

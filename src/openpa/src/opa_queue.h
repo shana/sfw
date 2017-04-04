@@ -11,7 +11,9 @@
 #ifndef OPA_QUEUE_H_INCLUDED
 #define OPA_QUEUE_H_INCLUDED
 
+#ifdef HAVE_CONFIG_H
 #include "../../../config.h"
+#endif
 
 #include "opa_primitives.h"
 #ifdef HAVE_STDDEF_H
