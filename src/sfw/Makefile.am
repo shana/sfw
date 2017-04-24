@@ -46,6 +46,9 @@ sfw_la_LIBADD = $(top_builddir)/src/openpa/libopenpa.la
 libsfw_la_LDFLAGS = $(LDFLAGS) -no-undefined -framework CoreServices
 sfw_la_LDFLAGS = $(LDFLAGS) -module -no-undefined -framework CoreServices
 
+$(top_builddir)/build:
+	$(MKDIR_P) $@
+
 check-local: $(top_builddir)/build
 	cp .libs/*.so $< || true
 	cp .libs/*.dylib $< || true
