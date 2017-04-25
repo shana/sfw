@@ -10,6 +10,20 @@
 #define WIN32_LEAN_AND_MEAN
 #include<windows.h>
 #include<intrin.h>
+#include <ntverp.h>  // For VER_PRODUCTBUILD
+
+#if VER_PRODUCTBUILD < 9600
+#define _InterlockedCompareExchange32 InterlockedCompareExchange
+#define _InterlockedExchange32 InterlockedExchange
+#define _InterlockedExchange64 InterlockedExchange64
+#define _InterlockedExchangeAdd32 InterlockedExchangeAdd
+#define _InterlockedAnd32 InterlockedAnd
+#define _InterlockedOr32 InterlockedOr
+#define _InterlockedXor32 InterlockedXor
+#define _InterlockedExchangeAdd16 InterlockedExchangeAdd16
+#define _InterlockedCompareExchange8 InterlockedCompareExchange8
+#define _InterlockedExchangeAdd8 InterlockedExchangeAdd8
+#endif
 
 /* OPA_int_t uses a long because the compiler intrinsics operate on
  * longs instead of ints. */

@@ -57,11 +57,13 @@ NativeInterface_GetEvents(NativeInterface* instance, SFW_Event** events, int* ev
 
 	if (eventVector != nullptr)
 	{
-		*events = new SFW_Event[eventVector->size()];
+		auto vector = *eventVector;
+		*events = new SFW_Event[vector.size()];
 
-		for (auto& localEvent : *eventVector)
+		for (auto iter = vector.begin(); iter != vector.end(); iter++)
 		{
 			auto exportEvent = *events + count;
+			auto localEvent = *iter;
 
 			exportEvent->type = localEvent->type;
 
