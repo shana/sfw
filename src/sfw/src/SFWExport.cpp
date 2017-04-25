@@ -25,7 +25,7 @@ char* copyString(std::string orig)
 		return nullptr;
 	}
 
-	int len = strlen(orig_cstr) + 1;
+	size_t len = strlen(orig_cstr) + 1;
 
 	auto buf = static_cast<char*>(malloc(len));
 	if (buf) {
