@@ -39,14 +39,50 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\src\bindings\sfw.net\sfw.net.csproj">
       <Project>{1ACFB048-3E82-4AB8-AE1C-B3BD8E5F1E0C}</Project>
       <Name>sfw.net</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+  <ItemGroup Condition=" '$(PlatformTarget)' == 'x86' ">
+    <Content Include="$(SolutionDir)\build\x86\$(Configuration)\sfw_x86.dll">
+      <Link>sfw_x86.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SolutionDir)\build\x86\$(Configuration)\sfw_x86.pdb">
+      <Link>sfw_x86.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SolutionDir)\build\x86\$(Configuration)\pthreadVC2.dll">
+      <Link>pthreadVC2.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
+  <ItemGroup Condition=" '$(PlatformTarget)' == 'x64' ">
+    <Content Include="$(SolutionDir)\build\x64\$(Configuration)\sfw_x64.dll">
+      <Link>sfw_x64.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SolutionDir)\build\x64\$(Configuration)\sfw_x64.pdb">
+      <Link>sfw_x64.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(SolutionDir)\build\x86\$(Configuration)\pthreadVC2.dll">
+      <Link>pthreadVC2.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
