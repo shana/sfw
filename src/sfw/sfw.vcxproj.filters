@@ -75,7 +75,4 @@
       <UniqueIdentifier>{74912962-3bde-400b-a67b-ec92af299324}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="$(SolutionDir)lib\pthreads-win32-2.9.1\dll\x64\pthreadVC2.dll" />
-  </ItemGroup>
 </Project>

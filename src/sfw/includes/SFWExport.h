@@ -7,7 +7,7 @@
 
 #if defined(_MSC_VER)
 #define SFW_VISIBILITY __declspec(dllimport)
-#define SFW_CALL __stdcall
+#define SFW_CALL
 #else
 #define SFW_VISIBILITY
 #define SFW_CALL
@@ -18,7 +18,7 @@
 //  Microsoft 
 #if defined(_MSC_VER)
 #define SFW_VISIBILITY __declspec(dllexport)
-#define SFW_CALL __stdcall
+#define SFW_CALL
 
 //  GCC and friends
 #elif defined(__GNUC__)
@@ -44,6 +44,7 @@ struct SFW_Event {
 	char* fileA;
 	char* fileB;
 };
+
 
 extern "C"
 {

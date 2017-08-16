@@ -21,7 +21,7 @@ namespace sfw.net.TestConsole
                 return 1;
             }
 
-            Console.WriteLine("Montoring Path: " + path);
+            Console.WriteLine("Monitoring Path: " + path);
 
             using (var nativeInterface = new NativeInterface(path))
             {
@@ -33,7 +33,7 @@ namespace sfw.net.TestConsole
                     {
                         foreach (Event @event in events)
                         {
-                            Console.WriteLine($"{@event.Type}: {@event.FileA}");
+                            Console.WriteLine("{0}: {1}", @event.Type, @event.FileA);
                         }
                     }
 

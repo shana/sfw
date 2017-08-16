@@ -75,16 +75,16 @@ namespace sfw.net
         }
         public string GetError(IntPtr nativeInterface)
         {
-            return NativeCalls.NativeInterface_getError(nativeInterface);
+            return NativeCalls.NativeInterface_GetError(nativeInterface);
         }
         public bool HasError(IntPtr nativeInterface)
         {
-            return NativeCalls.NativeInterface_hasErrored(nativeInterface);
+            return NativeCalls.NativeInterface_HasErrored(nativeInterface);
         }
 
         public void GetEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize)
         {
-            NativeCalls.NativeInterface_getEvents(nativeInterface, out events, out bufferSize);
+            NativeCalls.NativeInterface_GetEvents(nativeInterface, out events, out bufferSize);
         }
 
         static class NativeCalls
@@ -96,13 +96,13 @@ namespace sfw.net
             public static extern void NativeInterface_Delete(IntPtr nativeInterface);
 
             [DllImport("sfw_x86", CallingConvention = CallingConvention.Cdecl)]
-            public static extern string NativeInterface_getError(IntPtr nativeInterface);
+            public static extern string NativeInterface_GetError(IntPtr nativeInterface);
 
             [DllImport("sfw_x86", CallingConvention = CallingConvention.Cdecl)]
-            public static extern bool NativeInterface_hasErrored(IntPtr nativeInterface);
+            public static extern bool NativeInterface_HasErrored(IntPtr nativeInterface);
 
-            [DllImport("sfw_x86", CallingConvention = CallingConvention.StdCall)]
-            public static extern void NativeInterface_getEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
+            [DllImport("sfw_x86", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void NativeInterface_GetEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
         }
     }
 
@@ -118,16 +118,16 @@ namespace sfw.net
         }
         public string GetError(IntPtr nativeInterface)
         {
-            return NativeCalls.NativeInterface_getError(nativeInterface);
+            return NativeCalls.NativeInterface_GetError(nativeInterface);
         }
         public bool HasError(IntPtr nativeInterface)
         {
-            return NativeCalls.NativeInterface_hasErrored(nativeInterface);
+            return NativeCalls.NativeInterface_HasErrored(nativeInterface);
         }
 
         public void GetEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize)
         {
-            NativeCalls.NativeInterface_getEvents(nativeInterface, out events, out bufferSize);
+            NativeCalls.NativeInterface_GetEvents(nativeInterface, out events, out bufferSize);
         }
 
         static class NativeCalls
@@ -139,13 +139,13 @@ namespace sfw.net
             public static extern void NativeInterface_Delete(IntPtr nativeInterface);
 
             [DllImport("sfw_x64", CallingConvention = CallingConvention.Cdecl)]
-            public static extern string NativeInterface_getError(IntPtr nativeInterface);
+            public static extern string NativeInterface_GetError(IntPtr nativeInterface);
 
             [DllImport("sfw_x64", CallingConvention = CallingConvention.Cdecl)]
-            public static extern bool NativeInterface_hasErrored(IntPtr nativeInterface);
+            public static extern bool NativeInterface_HasErrored(IntPtr nativeInterface);
 
-            [DllImport("sfw_x64", CallingConvention = CallingConvention.StdCall)]
-            public static extern void NativeInterface_getEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
+            [DllImport("sfw_x64", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void NativeInterface_GetEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
         }
     }
 
@@ -161,16 +161,16 @@ namespace sfw.net
         }
         public string GetError(IntPtr nativeInterface)
         {
-            return NativeCalls.NativeInterface_getError(nativeInterface);
+            return NativeCalls.NativeInterface_GetError(nativeInterface);
         }
         public bool HasError(IntPtr nativeInterface)
         {
-            return NativeCalls.NativeInterface_hasErrored(nativeInterface);
+            return NativeCalls.NativeInterface_HasErrored(nativeInterface);
         }
 
         public void GetEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize)
         {
-            NativeCalls.NativeInterface_getEvents(nativeInterface, out events, out bufferSize);
+            NativeCalls.NativeInterface_GetEvents(nativeInterface, out events, out bufferSize);
         }
 
         static class NativeCalls
@@ -182,13 +182,13 @@ namespace sfw.net
             public static extern void NativeInterface_Delete(IntPtr nativeInterface);
 
             [DllImport("sfw", CallingConvention = CallingConvention.Cdecl)]
-            public static extern string NativeInterface_getError(IntPtr nativeInterface);
+            public static extern string NativeInterface_GetError(IntPtr nativeInterface);
 
             [DllImport("sfw", CallingConvention = CallingConvention.Cdecl)]
-            public static extern bool NativeInterface_hasErrored(IntPtr nativeInterface);
+            public static extern bool NativeInterface_HasErrored(IntPtr nativeInterface);
 
             [DllImport("sfw", CallingConvention = CallingConvention.Cdecl)]
-            public static extern void NativeInterface_getEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
+            public static extern void NativeInterface_GetEvents(IntPtr nativeInterface, out IntPtr events, out int bufferSize);
         }
     }
 }
