@@ -1,8 +1,21 @@
-lib_LTLIBRARIES = libsfw.la sfw.la
+lib_LTLIBRARIES = libsfw.la
 
 includes = $(addprefix -I$(top_srcdir)/, $(INCLUDE_PATHS))
 
 if TARGET_WIN
+os_sources = \
+	src/win32/ReadLoop.cpp \
+	src/win32/ReadLooprunner.cpp \
+	includes/win32/pthreads-win32/config.h \
+	includes/win32/pthreads-win32/context.h \
+	includes/win32/pthreads-win32/implement.h \
+	includes/win32/pthreads-win32/need-errno.h \
+	includes/win32/pthreads-win32/pthread.h \
+	includes/win32/pthreads-win32/sched.h \
+	includes/win32/pthreads-win32/semaphore.h \
+	includes/win32/pthread.h \
+	includes/win32/ReadLoop.h \
+	includes/linux/ReadLoopRunner.h
 endif
 
 if TARGET_LINUX
@@ -35,16 +48,14 @@ common_sources = \
 	includes/SFWExport.h
 
 libsfw_la_SOURCES = $(common_sources) $(os_sources)
-sfw_la_SOURCES = $(common_sources) $(os_sources)
-
 libsfw_la_CPPFLAGS = $(CPPFLAGS) $(includes)
-sfw_la_CPPFLAGS = $(CPPFLAGS) $(includes)
-
 libsfw_la_LIBADD = $(top_builddir)/src/openpa/libopenpa.la
-sfw_la_LIBADD = $(top_builddir)/src/openpa/libopenpa.la
 
-libsfw_la_LDFLAGS = $(LDFLAGS) -no-undefined -framework CoreServices
-sfw_la_LDFLAGS = $(LDFLAGS) -module -no-undefined -framework CoreServices
+if TARGET_MAC
+	libsfw_la_LDFLAGS = $(LDFLAGS) -module -shared -no-undefined -framework CoreServices
+else
+	libsfw_la_LDFLAGS = $(LDFLAGS) -module -no-undefined
+endif
 
 $(top_builddir)/build:
 	$(MKDIR_P) $@
@@ -52,4 +63,4 @@ $(top_builddir)/build:
 check-local: $(top_builddir)/build
 	cp .libs/*.so $< || true
 	cp .libs/*.dylib $< || true
-
+	cp .libs/*.dll $< || true

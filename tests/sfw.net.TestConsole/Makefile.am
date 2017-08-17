@@ -4,13 +4,10 @@ else
 platform=x64
 endif
 
-all-local: $(top_builddir)/build/sfw.net.TestConsole.exe
+check-local: $(abs_top_builddir)/sfw.net.TestConsole.exe
 
-$(top_builddir)/build:
-	$(MKDIR_P) $@
-
-$(top_builddir)/build/sfw.net.TestConsole.exe: $(top_builddir)/build Program.cs Properties/AssemblyInfo.cs sfw.net.TestConsole.csproj
-	xbuild sfw.net.TestConsole.csproj /property:Platform=$(platform) /property:Configuration=Release /property:SolutionDir=$(top_srcdir) /property:OutputPath=$(top_builddir)/build
+$(abs_top_builddir)/sfw.net.TestConsole.exe: $(srcdir)/Program.cs $(srcdir)/Properties/AssemblyInfo.cs $(srcdir)/sfw.net.TestConsole.csproj
+	xbuild $(srcdir)/sfw.net.TestConsole.csproj /property:Platform=$(platform) /property:Configuration=Release /property:SolutionDir=$(abs_top_srcdir) /property:OutputPath=$(abs_top_builddir)
 
 clean-local:
-	xbuild sfw.net.TestConsole.csproj /property:Platform=$(platform) /property:Configuration=Release /property:SolutionDir=$(top_srcdir) /property:OutputPath=$(top_builddir)/build /target:Clean
+	xbuild $(srcdir)/sfw.net.TestConsole.csproj /property:Platform=$(platform) /property:Configuration=Release /property:SolutionDir=$(abs_top_srcdir) /property:OutputPath=$(abs_top_builddir) /target:Clean

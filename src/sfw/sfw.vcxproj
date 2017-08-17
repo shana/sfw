@@ -100,7 +100,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=4;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TARGET_WIN;WIN32;_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=4;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)includes;$(ProjectDir)includes\win32;$(SolutionDir)src\openpa\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -124,7 +124,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN64;_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TARGET_WIN;WIN64;_DEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)includes;$(ProjectDir)includes\win32;$(SolutionDir)src\openpa\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -147,7 +147,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TARGET_WIN;WIN32;NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)includes;$(ProjectDir)includes\win32;$(SolutionDir)src\openpa\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -171,7 +171,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TARGET_WIN;WIN64;NDEBUG;_WINDOWS;_USRDLL;SFW_EXPORTS;%(PreprocessorDefinitions);HAVE_STRUCT_TIMESPEC=1;OPA_HAVE_NT_INTRINSICS=1;OPA_SIZEOF_VOID_P=8;_SCL_SECURE_NO_WARNINGS;NOMINMAX</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)includes;$(ProjectDir)includes\win32;$(SolutionDir)src\openpa\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>

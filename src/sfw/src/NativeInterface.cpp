@@ -8,14 +8,14 @@
 #include <vector>
 #include <algorithm>
 
-#if defined(_WIN32)
+#if defined(TARGET_WIN)
 #define SERVICE ReadLoop
 #include <ReadLoop.h>
 #include <windows.h>
-#elif defined(__APPLE_CC__) || defined(BSD)
+#elif defined(TARGET_MAC)
 #define SERVICE FSEventsService
 #include <FSEventsService.h>
-#elif defined(__linux__)
+#elif defined(TARGET_LINUX)
 #define SERVICE InotifyService
 #include <InotifyService.h>
 #endif
