@@ -94,9 +94,11 @@ AC_CONFIG_FILES([
 	src/Makefile
 	src/openpa/Makefile
 	src/sfw/Makefile
+	src/bindings/Makefile
+	src/bindings/sfw.net/Makefile
 	tests/Makefile
 	tests/test-console/Makefile
-
+	tests/sfw.net.TestConsole/Makefile
 ])
 AC_CONFIG_COMMANDS([default],[[ echo timestamp > stamp-h ]],[[]])
 AC_OUTPUT
