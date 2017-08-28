@@ -2,6 +2,7 @@ check_PROGRAMS = test-console
 
 includes = $(addprefix -I$(top_srcdir)/, $(INCLUDE_PATHS))
 test_console_CPPFLAGS = $(CPPFLAGS) $(includes)
+test_console_LDFLAGS = $(LDFLAGS) -pthread
 
 test_console_LDADD = $(top_builddir)/src/sfw/libsfw.la
 
@@ -17,7 +18,7 @@ clean-local:
 endif
 
 if TARGET_LINUX
-libsfw.so: $(top_builddir)/src/sfw/.libs/libsfw.0.so
+libsfw.so: $(top_builddir)/src/sfw/.libs/libsfw.so
 	$(LN_S) -f $< $@
 
 check-local: libsfw.so

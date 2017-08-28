@@ -1,4 +1,4 @@
-lib_LTLIBRARIES = libopenpa.la
+noinst_LTLIBRARIES = libopenpa.la
 
 if TARGET_UNIX
 os_sources=src/primitives/opa_gcc_intrinsics.h
@@ -16,4 +16,8 @@ libopenpa_la_SOURCES = \
 	src/opa_queue.c \
 	$(os_sources)
 
-libopenpa_la_LDFLAGS = -static
+if TARGET_LINUX
+	libopenpa_la_LDFLAGS = -static -fPIC
+else
+	libopenpa_la_LDFLAGS = -static
+endif

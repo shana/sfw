@@ -35,3 +35,16 @@ obj/
 bin/
 [dD]ebug/
 [rR]elease/
+
+aclocal.m4
+autom4te.cache
+compile
+config.guess
+config.sub
+depcomp
+install-sh
+install
+ltmain.sh
+m4
+missing
+tmp
