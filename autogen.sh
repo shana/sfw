@@ -17,7 +17,7 @@ if test "$DIE" -eq 1; then
   exit 1
 fi
 
-autoreconf  -i --force --warnings=error
+autoreconf  -i --warnings=error
 
 if test x$NOCONFIGURE = x && test -z "$*"; then
   echo "**Warning**: I am going to run \`configure' with no arguments."
