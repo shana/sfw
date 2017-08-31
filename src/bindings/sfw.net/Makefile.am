@@ -1,8 +1,4 @@
-if TARGET_32
-platform=Win32
-else
-platform=x64
-endif
+platform=AnyCPU
 
 all-local: $(abs_top_builddir)/sfw.net.dll
 
