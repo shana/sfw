@@ -49,8 +49,8 @@
   </PropertyGroup>
   <PropertyGroup Label="Locals">
     <CharacterSet>Unicode</CharacterSet>
-    <IntDir>obj\$(Configuration)\$(PlatformTarget)\</IntDir>
-    <OutDir>$(SolutionDir)build\$(Configuration)\$(PlatformTarget)\</OutDir>
+    <IntDir>obj\$(PlatformTarget)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)build\win\$(PlatformTarget)\$(Configuration)\</OutDir>
     <PlatformToolset>v110_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -73,25 +73,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)build\win\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>obj\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)build\win\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>obj\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)build\win\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>obj\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)build\$(PlatformTarget)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)build\win\$(PlatformTarget)\$(Configuration)\</OutDir>
     <IntDir>obj\$(PlatformTarget)\$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)</TargetName>
   </PropertyGroup>
