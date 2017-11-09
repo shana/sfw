@@ -136,11 +136,13 @@ std::string getUTF8FileName(std::wstring path) {
 
 void ReadLoopRunner::handleEvents() {
   BYTE *base = mSwap;
-  for (;;) {
+  bool stop = false;
+  while (!stop) {
     PFILE_NOTIFY_INFORMATION info = (PFILE_NOTIFY_INFORMATION)base;
     std::wstring fileName = getWStringFileName(info->FileName, info->FileNameLength);
 
-    if (info->Action == FILE_ACTION_RENAMED_OLD_NAME) {
+    switch (info->Action) {
+    case FILE_ACTION_RENAMED_OLD_NAME:
       if (info->NextEntryOffset != 0) {
         base += info->NextEntryOffset;
         info = (PFILE_NOTIFY_INFORMATION)base;
@@ -161,11 +163,9 @@ void ReadLoopRunner::handleEvents() {
       }
       else {
         mQueue.enqueue(DELETED, getUTF8Directory(fileName), getUTF8FileName(fileName));
-        break;
+        stop = true;
       }
-    }
-
-    switch (info->Action) {
+      break;
     case FILE_ACTION_ADDED:
     case FILE_ACTION_RENAMED_NEW_NAME: // in the case we just receive a new name and no old name in the buffer
       mQueue.enqueue(CREATED, getUTF8Directory(fileName), getUTF8FileName(fileName));
@@ -179,6 +179,7 @@ void ReadLoopRunner::handleEvents() {
     };
 
     if (info->NextEntryOffset == 0) {
+      stop = true;
       break;
     }
     base += info->NextEntryOffset;
