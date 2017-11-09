@@ -1,12 +1,28 @@
 /.vs
 /ipch
+.idea
 
+*.in
+Makefile
+configure
+.dirstamp
+stamp-*
+
+*.la
+*.lo
 *.o
 *.d
 *.a
 *.pch
-
+*.dylib
+*.dll
+*.so
 *.user
+*.obj
+*.log
+*.status
+*.pdb
+*.tlog
 
 /*.opendb
 /*.db
@@ -14,6 +30,21 @@
 .metadata
 *.userprefs
 
-build
-obj
-bin
+build/
+obj/
+bin/
+[dD]ebug/
+[rR]elease/
+
+aclocal.m4
+autom4te.cache
+compile
+config.guess
+config.sub
+depcomp
+install-sh
+install
+ltmain.sh
+m4
+missing
+tmp
