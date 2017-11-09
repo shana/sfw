@@ -46,8 +46,12 @@ int main(int argc, char* argv[])
 				std::cout << "Renamed: ";
 				break;
 			}
-
-			std::cout << evt.fileA << std::endl;
+			std::cout << evt.fileA;
+			if (evt.fileB)
+			{
+				std::cout << " -> " << evt.fileB;
+			}
+			std::cout << std::endl;
 		}
 
 		std::cout << "Press any key or 'q' to quit: ";
