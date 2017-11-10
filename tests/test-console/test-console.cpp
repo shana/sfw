@@ -29,7 +29,6 @@ int main(int argc, char* argv[])
 		for (auto i = 0; i < eventCount; i++)
 		{
 			auto evt = buffer[i];
-			std::cout << "Change: ";
 			switch (evt.type)
 			{
 			case CREATED:
