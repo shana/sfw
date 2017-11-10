@@ -12,9 +12,11 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	std::cout << "Monitoring Path: " << argv[1] << std::endl;
+	auto monitor_path = argv[1];
+	auto monitor_path_length = strlen(monitor_path);
+	std::cout << "Monitoring Path: " << monitor_path << std::endl;
 
-	auto native_interface = NativeInterface_Create(argv[1]);
+	auto native_interface = NativeInterface_Create(monitor_path);
 
 	auto continueFlag = true;
 	while (continueFlag)
@@ -46,10 +48,15 @@ int main(int argc, char* argv[])
 				std::cout << "Renamed: ";
 				break;
 			}
-			std::cout << evt.directory << "\\" << evt.fileA;
+
+			auto event_directory_char = evt.directory;
+			auto event_directory = std::string(event_directory_char, strlen(event_directory_char));
+			auto base_directory = "." + event_directory.substr(monitor_path_length);
+
+			std::cout << base_directory << "\\" << evt.fileA;
 			if (evt.fileB)
 			{
-				std::cout << " -> " << evt.directory << "\\" << evt.fileB;
+				std::cout << " -> " << base_directory << "\\" << evt.fileB;
 			}
 			std::cout << std::endl;
 		}
