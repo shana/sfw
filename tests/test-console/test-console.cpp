@@ -46,10 +46,10 @@ int main(int argc, char* argv[])
 				std::cout << "Renamed: ";
 				break;
 			}
-			std::cout << evt.fileA;
+			std::cout << evt.directory << "\\" << evt.fileA;
 			if (evt.fileB)
 			{
-				std::cout << " -> " << evt.fileB;
+				std::cout << " -> " << evt.directory << "\\" << evt.fileB;
 			}
 			std::cout << std::endl;
 		}
