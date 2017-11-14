@@ -48,13 +48,17 @@ common_sources = \
 	includes/SFWExport.h
 
 libsfw_la_SOURCES = $(common_sources) $(os_sources)
+
+libsfw_la_CFLAGS = $(CFLAGS)
 libsfw_la_CPPFLAGS = $(CPPFLAGS) $(includes)
 libsfw_la_LIBADD = $(top_builddir)/src/openpa/libopenpa.la
 
+libsfw_la_LDFLAGS = $(LDFLAGS) -no-undefined
+
 if TARGET_MAC
-	libsfw_la_LDFLAGS = $(LDFLAGS) -module -shared -no-undefined -framework CoreServices
+libsfw_la_LDFLAGS += -shared -framework CoreServices -framework CoreFoundation
 else
-	libsfw_la_LDFLAGS = $(LDFLAGS) -module -no-undefined
+libsfw_la_LDFLAGS += -module
 endif
 
 $(top_builddir)/build:

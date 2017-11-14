@@ -1,7 +1,7 @@
 #!/bin/sh
 function usage() {
 	echo "Usage:"
-	echo "  build.sh -os [mac,linux] -arch [(space separated list of architectures, eg "i386 i586 x86_46")] [-autogen] [-configure] [-nobuild]"
+	echo "  build.sh -os [mac,linux] -arch [(space separated list of architectures, eg "i386 i586 x86_64")] [-autogen] [-configure] [-nobuild]"
 	exit
 }
 
@@ -86,7 +86,7 @@ if [ x"$OS" == x"mac" ]; then
 	cp ../m4/libtool.m4 .
 	patch -f<libtool.patch && cp libtool.m4 ../m4/ || true
 	popd
-	sdkpath="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk"
+	sdkpath="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"
 	sdkversion="10.9"
 	cflags="$cflags -isysroot $sdkpath -mmacosx-version-min=$sdkversion"
 	cxxflags="$cppflags -stdlib=libc++ -isysroot $sdkpath -mmacosx-version-min=$sdkversion"
@@ -123,6 +123,9 @@ for os in $OS; do
 				$root/configure --host="$arch-$vendor-$sys" --prefix="$archinstalldir" $configureflags
 			fi
 			if [ $build ]; then
+				if [ $currentconfigure ]; then
+					make clean || true
+				fi
 				make -j 4
 				make install
 				make check
