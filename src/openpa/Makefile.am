@@ -16,8 +16,5 @@ libopenpa_la_SOURCES = \
 	src/opa_queue.c \
 	$(os_sources)
 
-if TARGET_LINUX
-	libopenpa_la_LDFLAGS = -static -fPIC
-else
-	libopenpa_la_LDFLAGS = -static
-endif
+libopenpa_la_CFLAGS = $(CFLAGS)
+libopenpa_la_LDFLAGS = $(LDFLAGS) -static

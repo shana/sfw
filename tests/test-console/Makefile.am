@@ -2,7 +2,11 @@ check_PROGRAMS = test-console
 
 includes = $(addprefix -I$(top_srcdir)/, $(INCLUDE_PATHS))
 test_console_CPPFLAGS = $(CPPFLAGS) $(includes)
+
 test_console_LDFLAGS = $(LDFLAGS) -pthread
+if TARGET_MAC
+test_console_LDFLAGS += -framework CoreFoundation -framework CoreServices
+endif
 
 test_console_LDADD = $(top_builddir)/src/sfw/libsfw.la
 

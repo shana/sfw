@@ -37,6 +37,10 @@ esac
 
 INCLUDE_PATHS="src src/openpa src/sfw/includes src/openpa/src"
 
+CFLAGS="$CFLAGS -fPIC"
+CPPFLAGS="$CPPFLAGS -fPIC"
+LDFLAGS="$LDFLAGS -fPIC"
+
 case "$target_os" in
 	mingw* | cygwin*)
 		OS=win
@@ -52,7 +56,7 @@ case "$target_os" in
 		OS=mac
 		AC_DEFINE([TARGET_MAC], [1], [ ])
 		INCLUDE_PATHS="$INCLUDE_PATHS src/sfw/includes/osx"
-		LDFLAGS="$LD_FLAGS -undefined suppress -flat_namespace"
+		LDFLAGS="$LDFLAGS -undefined suppress -flat_namespace"
 		;;
 	*)
 	AC_MSG_ERROR([$target_os is not supported!])
